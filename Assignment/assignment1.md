@@ -25,10 +25,6 @@ http://cs101.openjudge.cn/practice/20742/
 
 
 
-思路：
-
-
-
 ##### 代码
 
 ```python
