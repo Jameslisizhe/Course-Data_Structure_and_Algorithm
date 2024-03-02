@@ -123,10 +123,6 @@ http://cs101.openjudge.cn/practice/22359/
 
 
 
-思路：
-
-
-
 ##### 代码
 
 ```python
