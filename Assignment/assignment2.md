@@ -57,6 +57,7 @@ fractionAdd(a, b, c, d)
 
 代码运行截图
 
+<img width="946" alt="27653" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/deb23f25-dcf1-4a86-b647-0e89909a95e1">
 
 
 
@@ -99,6 +100,7 @@ greatestValue(n, w)
 
 代码运行截图
 
+<img width="943" alt="04110" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/af8c53a8-5b8e-4772-bc5b-d058b5e9edb9">
 
 
 
@@ -155,6 +157,7 @@ for i in range(nCase):
 
 代码运行截图
 
+<img width="951" alt="18182" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/0f920ea8-b0cb-4ceb-9d21-9ee130ccf4e1">
 
 
 
@@ -200,6 +203,7 @@ for i in range(n):
 
 代码运行截图
 
+<img width="1184" alt="230B" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/d4376259-3456-4661-b9ed-b5399e9c46fa">
 
 
 
@@ -245,6 +249,7 @@ for i in range(t):
 
 代码运行截图
 
+<img width="1182" alt="1364A" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/9e4ea76c-13ee-4f93-a009-a92a9474f164">
 
 
 
@@ -293,6 +298,7 @@ aveScore(int(m),int(n))
 
 代码运行截图
 
+<img width="957" alt="18176" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/89cbc15d-6c08-44a7-be39-c792b4dc7340">
 
 
 
