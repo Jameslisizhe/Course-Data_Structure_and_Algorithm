@@ -4,18 +4,6 @@
 
 
 
-**说明：**
-
-1）The complete process to learn DSA from scratch can be broken into 4 parts:
-- Learn about Time and Space complexities
-- Learn the basics of individual Data Structures
-- Learn the basics of Algorithms
-- Practice Problems on DSA
-
-
-
-
-
 **编程环境**
 
 操作系统：macOS Monota 14.1.1
@@ -30,7 +18,7 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 http://cs101.openjudge.cn/practice/27653/
 
-
+思路：数学运算
 
 ##### 代码
 
