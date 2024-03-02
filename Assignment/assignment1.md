@@ -48,8 +48,10 @@ num(n)
 
 
 
+
 代码运行截图
 
+<img width="955" alt="20742" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/25a73be6-d542-4b91-9c83-d63ee28261b5">
 
 
 
@@ -88,6 +90,7 @@ doesVasyaSayHello(s)
 
 代码运行截图
 
+<img width="1183" alt="58A" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/380e2cbf-ff14-43da-a697-34694cd9937e">
 
 
 
@@ -127,6 +130,7 @@ deleteVowels(s)
 
 代码运行截图
 
+<img width="1183" alt="118A" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/f33c84f1-c58c-4e9d-84f0-9a05058b4516">
 
 
 
@@ -172,6 +176,7 @@ sepPrime(m)
 
 代码运行截图
 
+<img width="957" alt="22359" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/edda7b48-5271-4069-8f51-7c547d52cde6">
 
 
 
@@ -207,6 +212,7 @@ timeComplexity(s)
 
 代码运行截图
 
+<img width="954" alt="23563" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/eaa1b23c-a2e3-4f4e-8e24-d7d3c5b65a44">
 
 
 
@@ -254,6 +260,7 @@ topSelection(s)
 
 代码运行截图
 
+<img width="962" alt="24684" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/65aa8183-8d30-4952-ace9-a287b79fdb84">
 
 
 
