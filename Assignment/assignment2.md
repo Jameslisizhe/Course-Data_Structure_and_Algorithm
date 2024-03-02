@@ -52,7 +52,7 @@ greedy/dp, http://cs101.openjudge.cn/practice/04110
 
 
 
-思路：
+思路：贪心，先对单位质量价值排序，由大到小添加
 
 
 
@@ -95,7 +95,7 @@ implementation/sortings/data structures, http://cs101.openjudge.cn/practice/1818
 
 
 
-思路：
+思路：先对技能排序，在同一时刻，先试用伤害大的技能，直到达到使用上限
 
 
 
@@ -152,7 +152,7 @@ binary search/implementation/math/number theory, 1300, http://codeforces.com/pro
 
 
 
-思路：
+思路：先将所有1000000内的素数找出，判断输入的数可以开方并在开方后是素数即可
 
 
 
@@ -198,7 +198,7 @@ brute force/data structures/number theory/two pointers, 1200, https://codeforces
 
 
 
-思路：
+思路：先做数学证明：子列必须贴着原列的两边，然后遍历
 
 
 
@@ -244,7 +244,7 @@ http://cs101.openjudge.cn/practice/18176/
 
 
 
-思路：
+思路：先建立素数表，利用230B的方法判断成绩是否为T-Prime，最后平均所有有效成绩
 
 
 
@@ -289,7 +289,7 @@ aveScore(int(m),int(n))
 
 ## 2. 学习总结和收获
 
-
+在做素数判断时，可以利用Sieve of Eratosthenes来减少时间复杂度
 
 练习了OJ“2024spring每日选做”
 
