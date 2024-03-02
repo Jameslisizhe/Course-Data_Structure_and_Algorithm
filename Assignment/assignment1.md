@@ -18,7 +18,7 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 http://cs101.openjudge.cn/practice/20742/
 
-
+思路：逐一递推
 
 ##### 代码
 
@@ -50,6 +50,8 @@ num(n)
 
 greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
 
+
+思路：逐一判断
 
 
 ##### 代码
@@ -86,6 +88,8 @@ doesVasyaSayHello(s)
 implementation/strings, 1000, http://codeforces.com/problemset/problem/118/A
 
 
+思路：逐一对每个字符进行3个操作
+
 
 ##### 代码
 
@@ -120,6 +124,9 @@ deleteVowels(s)
 ### 22359: Goldbach Conjecture
 
 http://cs101.openjudge.cn/practice/22359/
+
+
+思路：先定义判断素数的函数，然后遍历判断对应两个数是否均为素数
 
 
 
@@ -165,7 +172,7 @@ http://cs101.openjudge.cn/practice/23563/
 
 
 
-思路：
+思路：遍历找到最大指数幂
 
 
 
@@ -201,7 +208,7 @@ http://cs101.openjudge.cn/practice/24684/
 
 
 
-思路：
+思路：先排序，然后统计票数，找到最大票数的选项，对其进行排序后输出
 
 
 
