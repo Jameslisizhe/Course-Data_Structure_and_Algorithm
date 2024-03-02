@@ -57,10 +57,6 @@ greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
 
 
 
-思路：
-
-
-
 ##### 代码
 
 ```python
