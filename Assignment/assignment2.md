@@ -32,10 +32,6 @@ http://cs101.openjudge.cn/practice/27653/
 
 
 
-思路：
-
-
-
 ##### 代码
 
 ```python
