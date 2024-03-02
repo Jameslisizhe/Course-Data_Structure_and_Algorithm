@@ -87,10 +87,6 @@ implementation/strings, 1000, http://codeforces.com/problemset/problem/118/A
 
 
 
-思路：
-
-
-
 ##### 代码
 
 ```python
