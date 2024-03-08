@@ -1,7 +1,5 @@
 # Assignment #3: March月考
 
-Updated 1537 GMT+8 March 6, 2024
-
 2024 spring, Complied by 李思哲 物理学院
 
 
