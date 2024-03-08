@@ -9,11 +9,9 @@ Updated 1537 GMT+8 March 6, 2024
 
 ==（请改为同学的操作系统、编程环境等）==
 
-操作系统：macOS Ventura 13.4.1 (c)
+操作系统：macOS Monota 14.1.1
 
-Python编程环境：Spyder IDE 5.2.2, PyCharm 2023.1.4 (Professional Edition)
-
-C/C++编程环境：Mac terminal vi (version 9.0.1424), g++/gcc (Apple clang version 14.0.3, clang-1403.0.22.14.1)
+Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 
 
