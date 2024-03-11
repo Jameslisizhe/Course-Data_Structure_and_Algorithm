@@ -198,7 +198,7 @@ http://cs101.openjudge.cn/practice/19963
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
 
