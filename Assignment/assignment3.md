@@ -19,7 +19,7 @@ http://cs101.openjudge.cn/practice/02945/
 
 
 
-思路：
+思路：动态规划，定义以指标为i元素结尾的最长子递减序列长度为longest_sub[i]，longest_sub[i]为满足missile_hight[i] <= missile_hight[j]且j < i中最大的longest_sub[j]加一
 
 
 
@@ -56,7 +56,7 @@ http://cs101.openjudge.cn/practice/04147
 
 
 
-思路：
+思路：递归
 
 
 
@@ -97,7 +97,7 @@ http://cs101.openjudge.cn/practice/03253
 
 
 
-思路：
+思路：逐一删除
 
 
 
@@ -144,7 +144,7 @@ http://cs101.openjudge.cn/practice/21554
 
 
 
-思路：
+思路：对时间排序后，先排时间短的，后排时间长的
 
 
 
@@ -185,7 +185,7 @@ http://cs101.openjudge.cn/practice/19963
 
 
 
-思路：
+思路：先以价格排序，对价格条件判断，后添加性价比指标，以性价比排序，再对性价比条件判断
 
 
 
@@ -245,7 +245,7 @@ http://cs101.openjudge.cn/practice/27300
 
 
 
-思路：
+思路：字符串分割后排序，标准输出
 
 
 
@@ -290,7 +290,7 @@ sort(n)
 
 ## 2. 学习总结和收获
 
-==如果作业题目简单，有否额外练习题目，比如：OJ“2024spring每日选做”、CF、LeetCode、洛谷等网站题目。==
+回顾了递归的基本逻辑，学习了动态规划的基本思路
 
 
 
