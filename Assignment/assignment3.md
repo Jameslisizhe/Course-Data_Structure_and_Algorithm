@@ -26,14 +26,26 @@ http://cs101.openjudge.cn/practice/02945/
 ##### 代码
 
 ```python
-# 
+def missile_interception(k):
+    missile_hight = list(map(int, input().split()))
+    longest_sub = [1] * k
+    for i in range(k):
+        for j in range(i):
+            if missile_hight[j] >= missile_hight[i]:
+                longest_sub[i] = max(longest_sub[i], longest_sub[j] + 1)
+    return max(longest_sub)
+
+
+k = int(input())
+print(missile_interception(k))
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="965" alt="截屏2024-03-11 19 27 12" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/6c1244a4-109c-4c34-9df8-a2c535a9494c">
 
 
 
