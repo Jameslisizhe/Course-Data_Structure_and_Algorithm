@@ -5,8 +5,6 @@
 
 **编程环境**
 
-==（请改为同学的操作系统、编程环境等）==
-
 操作系统：macOS Monota 14.1.1
 
 Python编程环境：Visual Studio Code 1.86.2 (Universal)
