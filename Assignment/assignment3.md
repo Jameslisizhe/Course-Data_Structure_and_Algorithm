@@ -252,7 +252,30 @@ http://cs101.openjudge.cn/practice/27300
 ##### 代码
 
 ```python
-# 
+def sort(n):
+    model = []
+    for i in range(n):
+        name, size = input().split('-')
+        size_num = float(size[:-1])
+        if size[-1] == 'M':
+            size_unit_mark = 1
+        elif size[-1] == 'B':
+            size_unit_mark = 2
+        model.append([name, size_unit_mark, size_num, size])
+    model.sort()
+    new_model_list = [[model[0][0], model[0][3]]]
+    for i in range(1, n):
+        if model[i][0] == model[i - 1][0]:
+            new_model_list[-1][1] = new_model_list[-1][1] + ', ' + model[i][3]
+        else:
+            new_model_list.append([model[i][0], model[i][3]])
+    for model_type in new_model_list:
+        print('%s: %s' % (model_type[0], model_type[1]))
+
+
+n = int(input())
+sort(n)
+
 
 ```
 
@@ -260,6 +283,7 @@ http://cs101.openjudge.cn/practice/27300
 
 代码运行截图
 
+<img width="952" alt="截屏2024-03-11 21 09 35" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/6e34c2d4-8f64-40a2-a0a1-82cdbe5cc901">
 
 
 
