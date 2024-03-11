@@ -59,8 +59,9 @@ http://cs101.openjudge.cn/practice/04147
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="963" alt="截屏2024-03-11 16 53 06" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/f7618a67-8352-4849-b12d-89607123bafe">
 
 
 
