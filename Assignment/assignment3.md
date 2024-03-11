@@ -139,14 +139,30 @@ http://cs101.openjudge.cn/practice/21554
 ##### 代码
 
 ```python
-# 
+def lab_arrangement(time_list: list, n: int):
+    for i in range(n):
+        time_list[i] = [time_list[i], i + 1]
+    time_list.sort()
+    total_time = 0
+    print_list = []
+    for i in range(n):
+        print_list.append(time_list[i][1])
+        total_time += time_list[i][0] * (n - 1 - i)
+    print(*print_list)
+    print("%.2f" % (total_time / n))
+
+
+n = int(input())
+time_list = list(map(int, input().split()))
+lab_arrangement(time_list, n)
 
 ```
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="953" alt="截屏2024-03-11 17 13 51" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/2e0a1fb6-989e-4ccc-ade3-84a8de5d905a">
 
 
 
