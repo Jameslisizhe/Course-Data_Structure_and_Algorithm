@@ -54,14 +54,46 @@ http://cs101.openjudge.cn/practice/02694/
 代码
 
 ```python
-# 
+def PolandExp(s):
+    value = s.split()
+    for i in range(len(value)):
+        if value[i] != "+" and value[i] != "-" and value[i] != "*" and value[i] != "/":
+            value[i] = float(value[i])
+    while len(value) != 1:
+        tag = []
+        for i in range(1, len(value) - 1):
+            if (
+                isinstance(value[i], float)
+                and isinstance(value[i + 1], float)
+                and isinstance(value[i - 1], str)
+            ):
+                tag.append(i)
+                if value[i - 1] == "+":
+                    value[i - 1] = value[i] + value[i + 1]
+                elif value[i - 1] == "-":
+                    value[i - 1] = value[i] - value[i + 1]
+                elif value[i - 1] == "*":
+                    value[i - 1] = value[i] * value[i + 1]
+                elif value[i - 1] == "/":
+                    value[i - 1] = value[i] / value[i + 1]
+        tag.reverse()
+        for i in tag:
+            del value[i + 1]
+            del value[i]
+    print("%f" % value[0])
+
+
+s = input()
+PolandExp(s)
+
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="962" alt="截屏2024-03-11 21 31 26" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/ceedccd8-d3c9-439a-aa5b-f850b8f75f7b">
 
 
 
@@ -85,7 +117,7 @@ http://cs101.openjudge.cn/practice/24591/
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
 
@@ -104,14 +136,41 @@ http://cs101.openjudge.cn/practice/22068/
 代码
 
 ```python
-# 
+def isValid(x):
+    s = input()
+    if len(s) != len(x):
+        print("NO")
+    else:
+        pos = 1
+        for i in range(len(s)):
+            if s[i] in x:
+                if x.find(s[i]) < pos - 1:
+                    print("NO")
+                    return
+                else:
+                    pos = x.find(s[i])
+                    x = x[:pos] + x[pos + 1 :]
+            else:
+                print("NO")
+                return
+        print("YES")
+
+
+x = input()
+while True:
+    try:
+        isValid(x)
+    except EOFError:
+        break
+
 
 ```
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="955" alt="截屏2024-03-11 21 32 55" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/d556a30e-efae-44b7-86f7-50f51defba44">
 
 
 
@@ -135,7 +194,7 @@ http://cs101.openjudge.cn/practice/06646/
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
 
@@ -160,7 +219,7 @@ http://cs101.openjudge.cn/practice/02299/
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
 
@@ -168,7 +227,6 @@ http://cs101.openjudge.cn/practice/02299/
 
 ## 2. 学习总结和收获
 
-==如果作业题目简单，有否额外练习题目，比如：OJ“2024spring每日选做”、CF、LeetCode、洛谷等网站题目。==
 
 
 
