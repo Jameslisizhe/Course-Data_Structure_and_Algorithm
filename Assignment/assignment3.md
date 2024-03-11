@@ -19,7 +19,7 @@ http://cs101.openjudge.cn/practice/02945/
 
 
 
-思路：动态规划，定义以指标为i元素结尾的最长子递减序列长度为longest_sub[i]，longest_sub[i]为满足missile_hight[i] <= missile_hight[j]且j < i中最大的longest_sub[j]加一
+思路：动态规划，定义以指标为 i 元素结尾的最长子递减序列长度为 longest_sub[i] ，longest_sub[i] 为满足 missile_hight[i] <= missile_hight[j] 且 j < i 中最大的 longest_sub[j] 加一
 
 
 
