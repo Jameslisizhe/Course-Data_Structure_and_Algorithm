@@ -78,7 +78,27 @@ http://cs101.openjudge.cn/practice/03253
 ##### 代码
 
 ```python
-# 
+def answer_Joseph_problem(n, p, m):
+    kid_queue = []
+    for i in range(1, n + 1):
+        kid_queue.append(i)
+    pos_of_1 = p - 1
+    quit_list = []
+    while len(kid_queue) != 0:
+        if pos_of_1 + m - 1 < len(kid_queue):
+            quit_list.append(kid_queue[pos_of_1 + m - 1])
+            del kid_queue[pos_of_1 + m - 1]
+            pos_of_1 += m - 1
+        else:
+            pos_of_1 -= len(kid_queue)
+    return quit_list
+
+while True:
+    n, p, m = map(int, input().split())
+    if n != 0 or p != 0 or m != 0:
+        print(*answer_Joseph_problem(n, p, m), sep = ',')
+    else:
+        break
 
 ```
 
