@@ -192,7 +192,41 @@ http://cs101.openjudge.cn/practice/19963
 ##### 代码
 
 ```python
-# 
+def find_favored_house_amount(n: int, house: list):
+    amount = 0
+    house.sort()
+    if n % 2 == 1:
+        mid_price = house[int((n - 1) / 2)][0]
+    else:
+        mid_price = (house[int(n / 2) - 1][0] + house[int(n / 2)][0]) / 2
+    for i in range(n):
+        if house[i][0] < mid_price:
+            house[i].append(True)
+            house[i].insert(0, house[i][1] / house[i][0])
+        else:
+            house[i].append(False)
+            house[i].insert(0, house[i][1] / house[i][0])
+    house.sort()
+    if n % 2 == 1:
+        mid_value = house[int((n - 1) / 2)][0]
+    else:
+        mid_value = (house[int(n / 2) - 1][0] + house[int(n / 2)][0]) / 2
+    for i in range(n):
+        if house[i][0] > mid_value and house[i][3]:
+            amount += 1
+    return amount
+
+
+n = int(input())
+distance_xy = list(input().split())
+house = []
+for i in range(n):
+    x, y = map(int, distance_xy[i][1: -1].split(','))
+    house.append([x + y])
+price = list(map(int, input().split()))
+for i in range(n):
+    house[i].insert(0, price[i])
+print(find_favored_house_amount(n, house))
 
 ```
 
@@ -200,6 +234,7 @@ http://cs101.openjudge.cn/practice/19963
 
 代码运行截图
 
+<img width="961" alt="截屏2024-03-11 20 42 30" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/6ed0b0db-4de5-4d27-9a61-cb4c92b2a023">
 
 
 
