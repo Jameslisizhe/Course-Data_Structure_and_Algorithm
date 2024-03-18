@@ -22,7 +22,7 @@ http://cs101.openjudge.cn/practice/05902/
 
 
 
-思路：
+思路：分类处理即可
 
 
 
@@ -57,6 +57,7 @@ for _ in range(t):
 
 代码运行截图
 
+<img width="951" alt="截屏2024-03-18 10 17 41" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/85ff5788-c8c9-45ad-a6fd-6c5b1fd28806">
 
 
 
