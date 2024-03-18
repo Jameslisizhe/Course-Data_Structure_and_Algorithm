@@ -29,7 +29,27 @@ http://cs101.openjudge.cn/practice/05902/
 代码
 
 ```python
-# 
+def two_tail_array(n):
+    array = []
+    for i in range(n):
+        op, value = map(int, input().split())
+        if op == 1:
+            array.append(value)
+        elif op == 2:
+            if value == 0:
+                array.pop(0)
+            elif value == 1:
+                array.pop()
+    if len(array) != 0:
+        print(*array, sep = ' ')
+    else:
+        print('NULL')
+
+
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    two_tail_array(n)
 
 ```
 
