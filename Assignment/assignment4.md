@@ -209,14 +209,28 @@ http://cs101.openjudge.cn/practice/06646/
 代码
 
 ```python
-# 
+def tree_depth(n):
+    tree_list = []
+    for i in range(n):
+        tree_list.append(list(map(int, input().split())))
+    depth = [1] * n
+    for i in range(n):
+        if tree_list[i][0] != -1:
+            depth[tree_list[i][0] - 1] = depth[i] + 1
+        if tree_list[i][1] != -1:
+            depth[tree_list[i][1] - 1] = depth[i] + 1
+    return max(depth)
 
+
+n = int(input())
+print(tree_depth(n))
 ```
 
 
 
 代码运行截图
 
+<img width="947" alt="截屏2024-03-18 11 47 05" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/30bc31b6-7f8e-4ff8-848a-edb3291f360a">
 
 
 
