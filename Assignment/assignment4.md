@@ -270,7 +270,7 @@ def merge(left, right):
         else:
             result.append(right[j])
             j += 1
-            count += left_len - i  # Counting the inversions
+            count += left_len - i
     result.extend(left[i:])
     result.extend(right[j:])
     return result, count
