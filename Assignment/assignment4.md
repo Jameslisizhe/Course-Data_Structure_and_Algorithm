@@ -295,7 +295,7 @@ while True:
 
 代码运行截图
 
-<img width="617" alt="截屏2024-03-19 13 06 44" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/39eb069c-4885-41da-ae18-698c55171a22">
+<img width="950" alt="截屏2024-03-19 13 06 44" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/39eb069c-4885-41da-ae18-698c55171a22">
 
 
 
