@@ -132,7 +132,79 @@ http://cs101.openjudge.cn/practice/24591/
 代码
 
 ```python
-# 
+def exp_split(exp):
+    exp_list = []
+    i = 0
+    while i < len(exp):
+        if (
+            exp[i] == "+"
+            or exp[i] == "-"
+            or exp[i] == "*"
+            or exp[i] == "/"
+            or exp[i] == "("
+            or exp[i] == ")"
+        ):
+            if exp[:i] != '':
+                exp_list.append(exp[:i])
+            exp_list.append(exp[i])
+            exp = exp[i + 1 :]
+            i = 0
+        else:
+            i += 1
+    if exp != '':
+        exp_list.append(exp)
+    return exp_list
+
+
+def normal_trans(exp_list):
+    i = 0
+    while i < len(exp_list):
+        if exp_list[i] == "*":
+            exp_list[i] = exp_list[i - 1] + " " + exp_list[i + 1] + " " + "*"
+            del exp_list[i - 1], exp_list[i]
+        elif exp_list[i] == "/":
+            exp_list[i] = exp_list[i - 1] + " " + exp_list[i + 1] + " " + "/"
+            del exp_list[i - 1], exp_list[i]
+        else:
+            i += 1
+    i = 0
+    while i < len(exp_list):
+        if exp_list[i] == "+":
+            exp_list[i] = exp_list[i - 1] + " " + exp_list[i + 1] + " " + "+"
+            del exp_list[i - 1], exp_list[i]
+        elif exp_list[i] == "-":
+            exp_list[i] = exp_list[i - 1] + " " + exp_list[i + 1] + " " + "-"
+            del exp_list[i - 1], exp_list[i]
+        else:
+            i += 1
+    return exp_list
+
+
+def trans(exp):
+    exp_list = exp_split(exp)
+    stack = []
+    i = 0
+    while i < len(exp_list):
+        if exp_list[i] == "(":
+            stack.append(i)
+            i += 1
+        elif exp_list[i] == ")":
+            exp_list = (
+                exp_list[: stack[-1]]
+                + normal_trans(exp_list[stack[-1] + 1 : i])
+                + exp_list[i + 1 :]
+            )
+            i = stack[-1] + 1
+            stack.pop()
+        else:
+            i += 1
+    return normal_trans(exp_list)[0]
+
+
+n = int(input())
+for _ in range(n):
+    exp = input()
+    print(trans(exp))
 
 ```
 
@@ -140,6 +212,7 @@ http://cs101.openjudge.cn/practice/24591/
 
 代码运行截图
 
+<img width="750" alt="截屏2024-03-19 16 15 32" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/13f49d02-e539-45e8-8b80-013ad571d954">
 
 
 
