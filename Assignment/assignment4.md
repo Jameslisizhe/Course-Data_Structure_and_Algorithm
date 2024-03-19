@@ -241,14 +241,53 @@ http://cs101.openjudge.cn/practice/02299/
 
 
 
-思路：
+思路：归并排序
 
 
 
 代码
 
 ```python
-# 
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr, 0
+    else:
+        mid = len(arr) // 2
+        left_half, left_count = merge_sort(arr[:mid])
+        right_half, right_count = merge_sort(arr[mid:])
+        merged_arr, merge_count = merge(left_half, right_half)
+        return merged_arr, (left_count + right_count + merge_count)
+
+def merge(left, right):
+    result = []
+    count = 0
+    i = j = 0
+    left_len = len(left)
+    while i < left_len and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+            count += left_len - i  # Counting the inversions
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result, count
+
+def count_inversions(arr):
+    _, count = merge_sort(arr)
+    return count
+
+while True:
+    n = int(input())
+    arr = []
+    if n!= 0:
+        for _ in range(n):
+            arr.append(int(input()))
+        print(count_inversions(arr))
+    else:
+        break
 
 ```
 
@@ -256,6 +295,7 @@ http://cs101.openjudge.cn/practice/02299/
 
 代码运行截图
 
+<img width="617" alt="截屏2024-03-19 13 06 44" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/39eb069c-4885-41da-ae18-698c55171a22">
 
 
 
