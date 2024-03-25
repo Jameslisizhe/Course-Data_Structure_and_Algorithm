@@ -22,7 +22,7 @@ http://cs101.openjudge.cn/practice/27638/
 
 
 
-思路：
+思路：递归求高度，遍历求叶数
 
 
 
