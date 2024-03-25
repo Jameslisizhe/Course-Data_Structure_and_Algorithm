@@ -29,14 +29,47 @@ http://cs101.openjudge.cn/practice/27638/
 代码
 
 ```python
-# 
+def depth_tree(node, tree_list):
+    if node == -1:
+        return 0
+    else:
+        return (
+            max(
+                depth_tree(tree_list[node][0], tree_list),
+                depth_tree(tree_list[node][1], tree_list),
+            )
+            + 1
+        )
 
+
+def root(tree_list):
+    n = len(tree_list)
+    root_list = [1] * (n + 1)
+    for i in range(n):
+        root_list[tree_list[i][0]] = 0
+        root_list[tree_list[i][1]] = 0
+    return root_list.index(1)
+
+
+def leaf_num(tree_list):
+    sum = 0
+    for link in tree_list:
+        if link == [-1, -1]:
+            sum += 1
+    return sum
+
+n = int(input())
+tree_list = []
+for i in range(n):
+    tree_list.append(list(map(int, input().split())))
+print(depth_tree(root(tree_list), tree_list) - 1, leaf_num(tree_list))
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="953" alt="截屏2024-03-25 16 41 14" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/567597b3-16ee-4b84-94ac-2d0c25c30a28">
 
 
 
