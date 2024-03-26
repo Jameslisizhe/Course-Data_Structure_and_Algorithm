@@ -87,14 +87,36 @@ http://cs101.openjudge.cn/practice/24729/
 代码
 
 ```python
-# 
+def forward(exp):
+    forward = ""
+    for i in exp:
+        if i.isupper():
+            forward += i
+    return forward
+
+
+def backward(exp):
+    stack = []
+    for i in range(len(exp)):
+        if exp[i] == "(":
+            stack.append(i)
+        elif exp[i] == ")":
+            j = stack.pop()
+            exp = exp[: j - 1] + exp[j : i + 1] + exp[j - 1] + exp[i + 1 :]
+    return forward(exp)
+
+
+exp = input()
+print(forward(exp))
+print(backward(exp)) 
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="954" alt="截屏2024-03-26 15 08 02" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/6458edd6-2af5-4381-ba8b-578a3d0cbad6">
 
 
 
