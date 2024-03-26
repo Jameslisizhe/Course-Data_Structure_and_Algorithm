@@ -153,20 +153,62 @@ http://cs101.openjudge.cn/practice/25140/
 
 
 思路：
-
+建立起表达式树，按层次遍历表达式树的结果前后颠倒就得到队列表达式
 
 
 代码
 
 ```python
-# 
+def root(tree_list):
+    n = len(tree_list)
+    root_list = [1] * (n + 1)
+    for i in range(n):
+        root_list[tree_list[i][0]] = 0
+        root_list[tree_list[i][1]] = 0
+    return root_list.index(1)
+
+
+def queexp(exp):
+    tree_list = [[]] * len(exp)
+    stack = []
+    for i in range(len(exp)):
+        if exp[i].islower():
+            stack.append(i)
+            tree_list[i] = [-1, -1]
+        elif exp[i].isupper():
+            rightopv = stack.pop()
+            leftopv = stack.pop()
+            tree_list[i] = [leftopv, rightopv]
+            stack.append(i)
+    next_layer = [root(tree_list)]
+    forward_exp = ''
+    while True:
+        ed_layer = []
+        for i in next_layer:
+            forward_exp += exp[i]
+            if tree_list[i][0] != -1:
+                ed_layer.append(tree_list[i][0])
+            if tree_list[i][1] != -1:
+                ed_layer.append(tree_list[i][1])
+        next_layer = ed_layer
+        if next_layer == []:
+            break
+    return forward_exp[::-1]
+    
+
+
+n = int(input())
+for i in range(n):
+    exp = input()
+    print(queexp(exp))
 
 ```
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="751" alt="截屏2024-03-26 16 25 33" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/45d0d110-b699-4537-b7b4-af6dda235a81">
 
 
 
