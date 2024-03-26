@@ -127,21 +127,60 @@ http://cs101.openjudge.cn/practice/02775/
 
 
 
-思路：
+思路：栈
 
 
 
 代码
 
 ```python
-# 
+def arrangement(file):
+    stack = []
+    print("ROOT")
+    depth = 0
+    for i in range(len(file)):
+        if file[i][0] == "f":
+            stack.append([file[i], depth])
+        elif file[i][0] == "d":
+            depth += 1 
+            print("|     " * depth, file[i], sep="")
+        elif file[i][0] == "]":
+            temp = []
+            while stack != [] and stack[-1][1] == depth:
+                temp.append(stack.pop()[0])
+            temp.sort()
+            for temp_file in temp:
+                print("|     " * depth, temp_file, sep="")
+            depth -= 1
+    stack.sort()
+    for temp_file in stack:
+        print(temp_file[0], sep = '')
+
+set_num = 0
+while True:
+    set_num += 1
+    file = []
+    while True:
+        a = input()
+        if a != '*' and a != '#':
+            file.append(a)
+        else:
+            break
+    if a == '#':
+        break
+    if set_num != 1:
+        print("\nDATA SET %d:" % set_num)
+    else:
+        print("DATA SET %d:" % set_num)
+    arrangement(file)
 
 ```
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="797" alt="截屏2024-03-26 17 33 59" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/ce63031d-e23c-4ffe-83f5-ab8153708eab">
 
 
 
