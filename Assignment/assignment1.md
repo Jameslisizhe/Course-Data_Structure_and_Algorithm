@@ -171,12 +171,6 @@ timeComplexity(s)
 
 
 
-代码运行截图
-
-<img width="954" alt="23563" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/eaa1b23c-a2e3-4f4e-8e24-d7d3c5b65a44">
-
-
-
 
 ### 24684: 直播计票
 
@@ -216,12 +210,6 @@ def topSelection(s):
 s = input().split(' ')
 topSelection(s)
 ```
-
-
-
-代码运行截图
-
-<img width="962" alt="24684" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/65aa8183-8d30-4952-ace9-a287b79fdb84">
 
 
 
