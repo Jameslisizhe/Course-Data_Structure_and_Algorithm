@@ -18,8 +18,6 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 http://cs101.openjudge.cn/practice/27653/
 
-思路：数学运算
-
 ##### 代码
 
 ```python
