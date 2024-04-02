@@ -154,12 +154,6 @@ find_prime_pair(m)
 
 
 
-代码运行截图
-
-<img width="957" alt="22359" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/edda7b48-5271-4069-8f51-7c547d52cde6">
-
-
-
 
 ### 23563: 多项式时间复杂度
 
