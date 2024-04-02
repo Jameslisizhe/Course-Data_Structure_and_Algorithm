@@ -27,7 +27,7 @@ http://cs101.openjudge.cn/practice/22275/
 代码
 
 ```python
-class Node():
+class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -38,7 +38,7 @@ def buildTree(preorder):
     if len(preorder) == 0:
         return None
 
-    node = Node(preorder[0])
+    node = TreeNode(preorder[0])
 
     idx = len(preorder)
     for i in range(1, len(preorder)):
