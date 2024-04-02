@@ -155,18 +155,20 @@ http://cs101.openjudge.cn/practice/23563/
 ##### 代码
 
 ```python
-def timeComplexity(s):
-    list = s.split('+')
-    a = 0
-    for i in range(len(list)):
-        splitList = list[i].split('n^')
-        if int(splitList[1]) > a and splitList[0] != '0':
-            a = int(splitList[1])
-    a = 'n^' + str(a)
-    print(a)
+import re
 
-s = input()
-timeComplexity(s)
+
+def time_complecity(s):
+    coe_exp = re.findall(r"(\d*)n\^(\d+)", s)
+    max_exponent = 0
+    for coefficient, exponent in coe_exp:
+        if coefficient != "0":
+            max_exponent = max(max_exponent, int(exponent))
+    return f"n^{max_exponent}"
+
+
+print(time_complecity(input()))
+
 ```
 
 
