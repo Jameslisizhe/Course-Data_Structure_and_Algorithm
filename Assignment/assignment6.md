@@ -471,9 +471,10 @@ if __name__ == "__main__":
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
+<img width="1000" alt="截屏2024-04-02 21 36 34" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/3ab4e207-1338-4cd7-ad47-5c7edc22bc2c">
 
 
 
