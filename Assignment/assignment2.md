@@ -23,18 +23,28 @@ http://cs101.openjudge.cn/practice/27653/
 ##### 代码
 
 ```python
-def gcd(x, y):
-    while y:
-        x, y = y, x % y
-    return x
+import math
 
-def fractionAdd(a, b, c, d):
-    e = a * d + b * c
-    f = b * d
-    print('%d/%d' % (e / gcd(e, f), f / gcd(e, f))) 
+
+class Fraction:
+
+    def __init__(self, num, den):
+        self.num = num
+        self.den = den
+
+    def __str__(self):
+        return str(self.num) + "/" + str(self.den)
+
+    def __add__(self, another_frac):
+        newnum = self.num * another_frac.den + self.den * another_frac.num
+        newden = self.den * another_frac.den
+        gcd = math.gcd(newnum, newden)
+        return Fraction(newnum // gcd, newden // gcd)
+
 
 a, b, c, d = map(int, input().split())
-fractionAdd(a, b, c, d)
+print(Fraction(a, b) + Fraction(c, d))
+
 ```
 
 
