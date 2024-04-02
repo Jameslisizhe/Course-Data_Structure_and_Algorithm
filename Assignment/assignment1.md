@@ -121,35 +121,35 @@ deleteVowels(s)
 http://cs101.openjudge.cn/practice/22359/
 
 
-思路：先定义判断素数的函数，然后遍历判断对应两个数是否均为素数
-
-
 
 ##### 代码
 
 ```python
-def is_Prime(n):
+def is_prime(n):
     if n <= 1:
-        return 0
+        return False
     elif n <= 3:
-        return 1
+        return True
     elif n % 2 == 0 or n % 3 == 0:
-        return 0
+        return False
     i = 5
-    while i*i <= n:
-        if n % i == 0 or n % (i+2) == 0:
-            return 0
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
         i += 6
-    return 1
+    return True
 
-def sepPrime(m):
-    for i in range(int(m/2)+1):
-        if is_Prime(i)*is_Prime(m-i) == 1:
-            print(i,m-i)
+
+def find_prime_pair(m):
+    for i in range(int(m / 2) + 1):
+        if is_prime(i) and is_prime(m - i):
+            print(i, m - i)
             break
 
+
 m = int(input())
-sepPrime(m)
+find_prime_pair(m)
+
 ```
 
 
