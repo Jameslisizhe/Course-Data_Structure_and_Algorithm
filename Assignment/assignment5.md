@@ -1,7 +1,5 @@
 # Assignment #5: "树"算：概念、表示、解析、遍历
 
-Updated 2124 GMT+8 March 17, 2024
-
 2024 spring, Complied by 李思哲 物理学院
 
 
