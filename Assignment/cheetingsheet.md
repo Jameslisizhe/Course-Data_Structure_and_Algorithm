@@ -78,7 +78,7 @@ class Deque:
     def size(self):
         return len(self.items)
 
-···
+```
 
 linkedlist 链表
 ```python
