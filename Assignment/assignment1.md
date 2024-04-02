@@ -148,10 +148,6 @@ http://cs101.openjudge.cn/practice/23563/
 
 
 
-思路：遍历找到最大指数幂
-
-
-
 ##### 代码
 
 ```python
@@ -167,7 +163,8 @@ def time_complecity(s):
     return f"n^{max_exponent}"
 
 
-print(time_complecity(input()))
+s = input()
+print(time_complecity(s))
 
 ```
 
