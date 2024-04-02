@@ -107,7 +107,7 @@ deleteVowels(s)
 
 http://cs101.openjudge.cn/practice/22359/
 
-
+思路：利用Sieve of Eratosthenes将和以内的素数找出，然后一一判断
 
 ##### 代码
 
