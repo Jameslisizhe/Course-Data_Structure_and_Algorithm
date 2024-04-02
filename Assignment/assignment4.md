@@ -101,12 +101,6 @@ PolandExp(s)
 
 
 
-代码运行截图
-
-<img width="962" alt="截屏2024-03-11 21 31 26" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/ceedccd8-d3c9-439a-aa5b-f850b8f75f7b">
-
-
-
 
 ### 24591: 中序表达式转后序表达式
 
@@ -199,12 +193,6 @@ for _ in range(n):
 
 
 
-代码运行截图
-
-<img width="750" alt="截屏2024-03-19 16 15 32" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/13f49d02-e539-45e8-8b80-013ad571d954">
-
-
-
 
 ### 22068: 合法出栈序列
 
@@ -251,12 +239,6 @@ while True:
 
 
 
-代码运行截图
-
-<img width="955" alt="截屏2024-03-11 21 32 55" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/d556a30e-efae-44b7-86f7-50f51defba44">
-
-
-
 
 ### 06646: 二叉树的深度
 
@@ -287,13 +269,6 @@ def tree_depth(n):
 n = int(input())
 print(tree_depth(n))
 ```
-
-
-
-代码运行截图
-
-<img width="947" alt="截屏2024-03-18 11 47 05" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/30bc31b6-7f8e-4ff8-848a-edb3291f360a">
-
 
 
 
@@ -355,16 +330,14 @@ while True:
 
 
 
-代码运行截图
-
-<img width="950" alt="截屏2024-03-19 13 06 44" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/39eb069c-4885-41da-ae18-698c55171a22">
-
-
-
 
 ## 2. 学习总结和收获
 
-题目难度开始上升，需要多加练习
+双端队列可以如下定义
+```python
+class Deque:
+    def 
+```
 
 
 
