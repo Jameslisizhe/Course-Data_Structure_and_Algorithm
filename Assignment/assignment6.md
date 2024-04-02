@@ -27,7 +27,44 @@ http://cs101.openjudge.cn/practice/22275/
 代码
 
 ```python
-# 
+class Node():
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+
+def buildTree(preorder):
+    if len(preorder) == 0:
+        return None
+
+    node = Node(preorder[0])
+
+    idx = len(preorder)
+    for i in range(1, len(preorder)):
+        if preorder[i] > preorder[0]:
+            idx = i
+            break
+    node.left = buildTree(preorder[1:idx])
+    node.right = buildTree(preorder[idx:])
+
+    return node
+
+
+def postorder(node):
+    if node is None:
+        return []
+    output = []
+    output.extend(postorder(node.left))
+    output.extend(postorder(node.right))
+    output.append(str(node.val))
+
+    return output
+
+
+n = int(input())
+preorder = list(map(int, input().split()))
+print(' '.join(postorder(buildTree(preorder))))
 
 ```
 
