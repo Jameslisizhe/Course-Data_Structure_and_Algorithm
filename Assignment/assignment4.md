@@ -333,10 +333,84 @@ while True:
 
 ## 2. 学习总结和收获
 
-双端队列可以如下定义
+基于链表的双端队列可以如下定义
 ```python
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
 class Deque:
-    def 
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def is_empty(self):
+        return self.front is None
+
+    def add_front(self, data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.front = new_node
+            self.rear = new_node
+        else:
+            new_node.next = self.front
+            self.front.prev = new_node
+            self.front = new_node
+
+    def add_rear(self, data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.front = new_node
+            self.rear = new_node
+        else:
+            new_node.prev = self.rear
+            self.rear.next = new_node
+            self.rear = new_node
+
+    def remove_front(self):
+        if self.is_empty():
+            raise IndexError("Deque is empty")
+        removed_data = self.front.data
+        if self.front == self.rear:
+            self.front = None
+            self.rear = None
+        else:
+            self.front = self.front.next
+            self.front.prev = None
+        return removed_data
+
+    def remove_rear(self):
+        if self.is_empty():
+            raise IndexError("Deque is empty")
+        removed_data = self.rear.data
+        if self.front == self.rear:
+            self.front = None
+            self.rear = None
+        else:
+            self.rear = self.rear.prev
+            self.rear.next = None
+        return removed_data
+
+    def peek_front(self):
+        if self.is_empty():
+            raise IndexError("Deque is empty")
+        return self.front.data
+
+    def peek_rear(self):
+        if self.is_empty():
+            raise IndexError("Deque is empty")
+        return self.rear.data
+
+    def size(self):
+        current = self.front
+        count = 0
+        while current:
+            count += 1
+            current = current.next
+        return count
+
 ```
 
 
