@@ -46,9 +46,6 @@ print(Tribonacci(n))
 greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
 
 
-思路：逐一判断
-
-
 ##### 代码
 
 ```python
