@@ -47,13 +47,6 @@ print(Fraction(a, b) + Fraction(c, d))
 
 
 
-代码运行截图
-
-<img width="946" alt="27653" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/deb23f25-dcf1-4a86-b647-0e89909a95e1">
-
-
-
-
 ### 04110: 圣诞老人的礼物-Santa Clau’s Gifts
 
 greedy/dp, http://cs101.openjudge.cn/practice/04110
