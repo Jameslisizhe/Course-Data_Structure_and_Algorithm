@@ -19,11 +19,6 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 http://cs101.openjudge.cn/practice/22275/
 
 
-
-思路：
-
-
-
 代码
 
 ```python
@@ -71,6 +66,8 @@ print(' '.join(postorder(buildTree(preorder))))
 
 
 代码运行截图 ==（至少包含有"Accepted"）==
+
+<img width="990" alt="截屏2024-04-02 21 22 09" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/c2e804ec-f078-4479-95d4-a6f4b6d50c7d">
 
 
 
