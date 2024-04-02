@@ -20,43 +20,34 @@ http://cs101.openjudge.cn/practice/05902/
 
 
 
-思路：分类处理即可
-
-
-
 代码
 
 ```python
-def two_tail_array(n):
-    array = []
-    for i in range(n):
-        op, value = map(int, input().split())
-        if op == 1:
-            array.append(value)
-        elif op == 2:
-            if value == 0:
-                array.pop(0)
-            elif value == 1:
-                array.pop()
-    if len(array) != 0:
-        print(*array, sep = ' ')
-    else:
-        print('NULL')
+from collections import deque
+
+def deque_operation(queue, op, value):
+    if op == 1:
+        queue.append(value)
+    elif op == 2:
+        if value == 0:
+            queue.popleft()
+        elif value == 1:
+            queue.pop()
 
 
 t = int(input())
 for _ in range(t):
+    queue = deque()
     n = int(input())
-    two_tail_array(n)
+    for _ in range(n):
+        op, value = map(int, input().split())
+        deque_operation(queue, op, value)
+    if queue:
+        print(*queue)
+    else:
+        print("NULL")
 
 ```
-
-
-
-代码运行截图
-
-<img width="951" alt="截屏2024-03-18 10 17 41" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/85ff5788-c8c9-45ad-a6fd-6c5b1fd28806">
-
 
 
 
