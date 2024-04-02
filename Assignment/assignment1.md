@@ -41,13 +41,6 @@ print(Tribonacci(n))
 
 
 
-代码运行截图
-
-<img width="955" alt="20742" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/25a73be6-d542-4b91-9c83-d63ee28261b5">
-
-
-
-
 ### 58A. Chat room
 
 greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
