@@ -71,13 +71,6 @@ doesVasyaSayHello(s)
 
 
 
-代码运行截图
-
-<img width="1183" alt="58A" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/380e2cbf-ff14-43da-a697-34694cd9937e">
-
-
-
-
 ### 118A. String Task
 
 implementation/strings, 1000, http://codeforces.com/problemset/problem/118/A
@@ -109,12 +102,6 @@ deleteVowels(s)
 
 
 
-代码运行截图
-
-<img width="1183" alt="118A" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/f33c84f1-c58c-4e9d-84f0-9a05058b4516">
-
-
-
 
 ### 22359: Goldbach Conjecture
 
@@ -124,31 +111,31 @@ http://cs101.openjudge.cn/practice/22359/
 
 ##### 代码
 
+
 ```python
-def is_prime(n):
-    if n <= 1:
-        return False
-    elif n <= 3:
-        return True
-    elif n % 2 == 0 or n % 3 == 0:
-        return False
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i += 6
-    return True
+def generate_primes(n):
+    primes = []
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if is_prime[i]:
+            primes.append(i)
+            for j in range(i * i, n + 1, i):
+                is_prime[j] = False
+    for i in range(int(n**0.5) + 1, n + 1):
+        if is_prime[i]:
+            primes.append(i)
+    return primes
 
+def find_prime_pair(sum):
+    primes = generate_primes(sum)
+    for prime in primes:
+        if sum - prime in primes:
+            return prime, sum - prime
 
-def find_prime_pair(m):
-    for i in range(int(m / 2) + 1):
-        if is_prime(i) and is_prime(m - i):
-            print(i, m - i)
-            break
-
-
-m = int(input())
-find_prime_pair(m)
+sum = int(input())
+A, B = find_prime_pair(sum)
+print(A, B)
 
 ```
 
@@ -241,9 +228,23 @@ topSelection(s)
 
 ## 2. 学习总结和收获
 
-计算概论选择C语言，自学python，作业中复习了字符串、列表、字典等数据类型的功能。
+一个经典的素数判断函数如下
 
-练习了OJ“2024spring每日选做“
+```python
+def is_prime(n):
+    if n <= 1:
+        return False
+    elif n <= 3:
+        return True
+    elif n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
 
+```
 
 
