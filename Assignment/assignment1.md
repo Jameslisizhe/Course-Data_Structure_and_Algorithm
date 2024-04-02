@@ -18,22 +18,24 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 http://cs101.openjudge.cn/practice/20742/
 
-思路：逐一递推
 
 ##### 代码
 
 ```python
-def num(n):
-    list = []
-    list.append(0)
-    list.append(1)
-    list.append(1)
-    for i in range(n):
-        list.append(list[i+2] + list[i+1] + list[i])
-    print(list[n])
+def Tribonacci(n):
+    if n == 0:
+        return 0
+    elif n in {1, 2}:
+        return 1
+    
+    a, b, c = 0, 1, 1
+    for _ in range(3, n + 1):
+        a, b, c = b, c, a + b + c
+    return c
 
 n = int(input())
-num(n)
+print(Tribonacci(n))
+
 ```
 
 
