@@ -177,7 +177,7 @@ http://cs101.openjudge.cn/practice/24684/
 
 
 
-思路：先排序，然后统计票数，找到最大票数的选项，对其进行排序后输出
+思路：利用collections中Counter进行统计
 
 
 
