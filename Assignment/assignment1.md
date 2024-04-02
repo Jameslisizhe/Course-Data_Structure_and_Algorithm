@@ -53,20 +53,19 @@ greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
 
 ```python
 def doesVasyaSayHello(s):
-    a = 0
-    for i in range(len(s)):
-        list = ['h','e','l','l','o']
-        if s[i] == list[a]:
-            a += 1
-        if a == 5:
-            break
-    if a == 5:
-        print('YES')
-    else:
-        print('NO')
+    hello = "hello"
+    index = 0
+    for char in s:
+        if char == hello[index]:
+            index += 1
+            if index == 5:
+                return "YES"
+    return "NO"
+
 
 s = input()
-doesVasyaSayHello(s)
+print(doesVasyaSayHello(s))
+
 ```
 
 
