@@ -10,6 +10,7 @@ while True:
 ```
 
 Class类
+
 stack 栈
 ```python
 class Stack:
