@@ -1,7 +1,5 @@
 # Assignment #6: "树"算：Huffman,BinHeap,BST,AVL,DisjointSet
 
-Updated 2214 GMT+8 March 24, 2024
-
 2024 spring, Complied by 李思哲 物理学院
 
 
