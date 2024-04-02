@@ -184,30 +184,19 @@ http://cs101.openjudge.cn/practice/24684/
 ##### 代码
 
 ```python
-def topSelection(s):
-    s.sort()
-    list = []
-    expList = []
-    list.append([s[0],1])
-    for i in range(len(s)-1):
-        if s[i+1] != s[i]:
-            list.insert(0,[s[i+1],1])
-        else:
-            list[0][1] += 1
-    a = 1
-    for i in range(len(list)):
-        if list[i][1] >= a:
-            a = list[i][1]
-    for i in range(len(list)):
-        if list[i][1] == a:
-            expList.append(int(list[i][0]))
-    expList.sort()
-    for i in range(len(expList)-1):
-        print(expList[i],end=' ')
-    print(expList[len(expList)-1])
+from collections import Counter
 
-s = input().split(' ')
-topSelection(s)
+
+def find_winner(votes):
+    winner_count = Counter(votes).most_common()
+    max_votes = winner_count[0][1]
+    winners = [option for option, count in winner_count if count == max_votes]
+    return sorted(winners)
+
+
+votes = list(map(int, input().split()))
+print(*find_winner(votes))
+
 ```
 
 
