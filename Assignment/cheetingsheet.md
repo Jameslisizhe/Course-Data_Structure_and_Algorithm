@@ -1,7 +1,10 @@
 
-代码
+
 
 ```python
-try:
-
+while True:
+    try:
+        isValid(x)
+    except EOFError:
+        break
 ```
