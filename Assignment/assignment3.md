@@ -55,39 +55,22 @@ print(missile_interception(k))
 http://cs101.openjudge.cn/practice/04147
 
 
-
-思路：递归
-
-
-
 ##### 代码
 
 ```python
-def tower_of_Hanoi(n, a, b, c):
-    if n > 3:
-        tower_of_Hanoi(n - 1, a, c, b)
-        print('%d:%s->%s' % (n, a, c))
-        tower_of_Hanoi(n - 1, b, a, c)
-    elif n == 3:
-        print('%d:%s->%s' % (1, a, c))
-        print('%d:%s->%s' % (2, a, b))
-        print('%d:%s->%s' % (1, c, b))
-        print('%d:%s->%s' % (3, a, c))
-        print('%d:%s->%s' % (1, b, a))
-        print('%d:%s->%s' % (2, b, c))
-        print('%d:%s->%s' % (1, a, c))
+def Hanoi(n, source, auxiliary, target):
+    if n == 1:
+        print("%d:%s->%s" % (1, source, target))
+        return
+    Hanoi(n - 1, source, target, auxiliary)
+    print("%d:%s->%s" % (n, source, target))
+    Hanoi(n - 1, auxiliary, source, target)
 
 
 n, a, b, c = input().split()
-tower_of_Hanoi(int(n), a, b, c)
+Hanoi(int(n), a, b, c)
+
 ```
-
-
-
-代码运行截图
-
-<img width="950" alt="截屏2024-03-11 17 11 07" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/acd94097-f3ce-4213-83ec-256af417aea9">
-
 
 
 
