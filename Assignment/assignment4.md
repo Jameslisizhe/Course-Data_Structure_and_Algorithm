@@ -1,7 +1,5 @@
 # Assignment #4: 排序、栈、队列和树
 
-Updated 0005 GMT+8 March 11, 2024
-
 2024 spring, Complied by 李思哲 物理学院
 
 
