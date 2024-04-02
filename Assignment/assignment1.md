@@ -76,28 +76,20 @@ doesVasyaSayHello(s)
 implementation/strings, 1000, http://codeforces.com/problemset/problem/118/A
 
 
-思路：逐一对每个字符进行3个操作
-
-
 ##### 代码
 
 ```python
 def deleteVowels(s):
-    list = ['A','O','Y','E','U','I','a','o','y','e','u','i']
-    s1 = ''
-    for i in range(len(s)):
-        a = 0
-        for j in range(12):
-            if s[i] == list[j]:
-                a = 1
-                break
-        if a == 0:
-            s1 += '.'
-            s1 += s[i].lower()
-    print(s1)
+    newstr = ""
+    for char in s:
+        if char not in "AaOoYyEeUuIi":
+            newstr += "." + char.lower()
+    return newstr
+
 
 s = input()
-deleteVowels(s)
+print(deleteVowels(s))
+
 ```
 
 
