@@ -234,28 +234,31 @@ http://cs101.openjudge.cn/practice/06646/
 
 
 
-思路：建一个深度列表（第n项表示以第n个节点的深度），逐一由上到下计算每个节点的深度，最后求最大值
-
-
-
 代码
 
 ```python
-def tree_depth(n):
-    tree_list = []
-    for i in range(n):
-        tree_list.append(list(map(int, input().split())))
-    depth = [1] * n
-    for i in range(n):
-        if tree_list[i][0] != -1:
-            depth[tree_list[i][0] - 1] = depth[i] + 1
-        if tree_list[i][1] != -1:
-            depth[tree_list[i][1] - 1] = depth[i] + 1
-    return max(depth)
+class TreeNode:
+    def __init__(self):
+        self.left = None
+        self.right = None
+
+
+def tree_depth(node):
+    if node is None:
+        return 0
+    return max(tree_depth(node.left), tree_depth(node.right)) + 1
 
 
 n = int(input())
-print(tree_depth(n))
+nodes = [TreeNode() for _ in range(n)]
+for i in range(n):
+    left_index, right_index = map(int, input().split())
+    if left_index != -1:
+        nodes[i].left = nodes[left_index - 1]
+    if right_index != -1:
+        nodes[i].right = nodes[right_index - 1]
+print(tree_depth(nodes[0]))
+
 ```
 
 
