@@ -1,15 +1,5 @@
 # Assignment #6: "树"算：Huffman,BinHeap,BST,AVL,DisjointSet
 
-2024 spring, Complied by 李思哲 物理学院
-
-
-
-**编程环境**
-
-操作系统：macOS Monota 14.1.1
-
-Python编程环境：Visual Studio Code 1.86.2 (Universal)
-
 
 
 ## 1. 题目
