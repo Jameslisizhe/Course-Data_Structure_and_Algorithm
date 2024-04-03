@@ -72,12 +72,6 @@ greatestValue(n, w)
 
 
 
-代码运行截图
-
-<img width="943" alt="04110" src="https://github.com/Jameslisizhe/CS-Lesson/assets/161715584/af8c53a8-5b8e-4772-bc5b-d058b5e9edb9">
-
-
-
 
 ### 18182: 打怪兽
 
