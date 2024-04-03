@@ -45,11 +45,6 @@ for _ in range(t):
 http://cs101.openjudge.cn/practice/02694/
 
 
-
-思路：逐一处理
-
-
-
 代码
 
 ```python
