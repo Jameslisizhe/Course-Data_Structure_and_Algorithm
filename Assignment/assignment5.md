@@ -20,47 +20,48 @@ http://cs101.openjudge.cn/practice/27638/
 
 
 
-思路：递归求高度，遍历求叶数
-
-
-
 代码
 
 ```python
-def depth_tree(node, tree_list):
-    if node == -1:
+class TreeNode:
+    def __init__(self):
+        self.parent = None
+        self.left = None
+        self.right = None
+
+
+def tree_height(node):
+    if node is None:
+        return -1
+    return max(tree_height(node.left), tree_height(node.right)) + 1
+
+
+def root(node):
+    if node.parent is None:
+        return node
+    return root(node.parent)
+
+
+def count_leaves(node):
+    if node is None:
         return 0
-    else:
-        return (
-            max(
-                depth_tree(tree_list[node][0], tree_list),
-                depth_tree(tree_list[node][1], tree_list),
-            )
-            + 1
-        )
+    elif node.left is None and node.right is None:
+        return 1
+    return count_leaves(node.left)+count_leaves(node.right)
 
-
-def root(tree_list):
-    n = len(tree_list)
-    root_list = [1] * (n + 1)
-    for i in range(n):
-        root_list[tree_list[i][0]] = 0
-        root_list[tree_list[i][1]] = 0
-    return root_list.index(1)
-
-
-def leaf_num(tree_list):
-    sum = 0
-    for link in tree_list:
-        if link == [-1, -1]:
-            sum += 1
-    return sum
 
 n = int(input())
-tree_list = []
+nodes = [TreeNode() for _ in range(n)]
 for i in range(n):
-    tree_list.append(list(map(int, input().split())))
-print(depth_tree(root(tree_list), tree_list) - 1, leaf_num(tree_list))
+    left_index, right_index = map(int, input().split())
+    if left_index != -1:
+        nodes[i].left = nodes[left_index]
+        nodes[left_index].parent = nodes[i]
+    if right_index != -1:
+        nodes[i].right = nodes[right_index]
+        nodes[right_index].parent = nodes[i]
+print(tree_height(root(nodes[0])),count_leaves(root(nodes[0])))
+
 ```
 
 
