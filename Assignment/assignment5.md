@@ -76,28 +76,38 @@ http://cs101.openjudge.cn/practice/24729/
 代码
 
 ```python
-def forward(exp):
-    forward = ""
-    for i in exp:
-        if i.isupper():
-            forward += i
-    return forward
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.children = []
 
 
-def backward(exp):
-    stack = []
-    for i in range(len(exp)):
-        if exp[i] == "(":
-            stack.append(i)
-        elif exp[i] == ")":
-            j = stack.pop()
-            exp = exp[: j - 1] + exp[j : i + 1] + exp[j - 1] + exp[i + 1 :]
-    return forward(exp)
+def preorder(node):
+    if node.children == []:
+        return node.value
+    return node.value + "".join(map(preorder, node.children))
+
+
+def postorder(node):
+    if node.children == []:
+        return node.value
+    return "".join(map(postorder, node.children)) + node.value
 
 
 exp = input()
-print(forward(exp))
-print(backward(exp)) 
+stack = []
+for char in exp:
+    if char.isalpha():
+        node = TreeNode(char)
+        if stack:
+            stack[-1].children.append(node)
+    elif char == "(":
+        stack.append(node)
+    elif char == ")":
+        node = stack.pop()
+root = node
+print(preorder(root))
+print(postorder(root))
 
 ```
 
