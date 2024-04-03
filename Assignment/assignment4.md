@@ -179,33 +179,33 @@ http://cs101.openjudge.cn/practice/22068/
 代码
 
 ```python
-def isValid(x):
-    s = input()
+def is_valid_pop_seq(x, s):
     if len(s) != len(x):
-        print("NO")
+        return False
     else:
         pos = 1
         for i in range(len(s)):
             if s[i] in x:
                 if x.find(s[i]) < pos - 1:
-                    print("NO")
-                    return
+                    return False
                 else:
                     pos = x.find(s[i])
                     x = x[:pos] + x[pos + 1 :]
             else:
-                print("NO")
-                return
-        print("YES")
+                return False
+        return True
 
 
 x = input()
 while True:
     try:
-        isValid(x)
+        s = input()
+        if is_valid_pop_seq(x, s):
+            print("YES")
+        else:
+            print("NO")
     except EOFError:
         break
-
 
 ```
 
