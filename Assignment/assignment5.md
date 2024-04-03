@@ -168,48 +168,40 @@ http://cs101.openjudge.cn/practice/25140/
 代码
 
 ```python
-def root(tree_list):
-    n = len(tree_list)
-    root_list = [1] * (n + 1)
-    for i in range(n):
-        root_list[tree_list[i][0]] = 0
-        root_list[tree_list[i][1]] = 0
-    return root_list.index(1)
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
 
-def queexp(exp):
-    tree_list = [[]] * len(exp)
+def parse_tree(postfix):
     stack = []
-    for i in range(len(exp)):
-        if exp[i].islower():
-            stack.append(i)
-            tree_list[i] = [-1, -1]
-        elif exp[i].isupper():
-            rightopv = stack.pop()
-            leftopv = stack.pop()
-            tree_list[i] = [leftopv, rightopv]
-            stack.append(i)
-    next_layer = [root(tree_list)]
-    forward_exp = ''
-    while True:
-        ed_layer = []
-        for i in next_layer:
-            forward_exp += exp[i]
-            if tree_list[i][0] != -1:
-                ed_layer.append(tree_list[i][0])
-            if tree_list[i][1] != -1:
-                ed_layer.append(tree_list[i][1])
-        next_layer = ed_layer
-        if next_layer == []:
-            break
-    return forward_exp[::-1]
-    
+    for char in postfix:
+        node = TreeNode(char)
+        if char.isupper():
+            node.right = stack.pop()
+            node.left = stack.pop()
+        stack.append(node)
+    return stack[0]
+
+
+def level_order_traversal(root):
+    queue = [root]
+    traversal = []
+    while queue:
+        node = queue.pop(0)
+        traversal.append(node.value)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+    return traversal
 
 
 n = int(input())
 for i in range(n):
-    exp = input()
-    print(queexp(exp))
+    print("".join(reversed(level_order_traversal(parse_tree(input())))))
 
 ```
 
