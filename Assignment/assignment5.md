@@ -73,10 +73,6 @@ http://cs101.openjudge.cn/practice/24729/
 
 
 
-思路：正向删括号，反向先将括号前的字母移到括号后再删括号
-
-
-
 代码
 
 ```python
@@ -107,21 +103,9 @@ print(backward(exp))
 
 
 
-代码运行截图
-
-<img width="954" alt="截屏2024-03-26 15 08 02" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/6458edd6-2af5-4381-ba8b-578a3d0cbad6">
-
-
-
-
 ### 02775: 文件结构“图”
 
 http://cs101.openjudge.cn/practice/02775/
-
-
-
-思路：栈
-
 
 
 代码
@@ -168,12 +152,6 @@ while True:
     arrangement(file)
 
 ```
-
-
-
-代码运行截图
-
-<img width="797" alt="截屏2024-03-26 17 33 59" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/ce63031d-e23c-4ffe-83f5-ab8153708eab">
 
 
 
