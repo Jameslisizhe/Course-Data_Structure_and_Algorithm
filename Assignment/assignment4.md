@@ -1,16 +1,5 @@
 # Assignment #4: 排序、栈、队列和树
 
-2024 spring, Complied by 李思哲 物理学院
-
-
-
-**编程环境**
-
-操作系统：macOS Monota 14.1.1
-
-Python编程环境：Visual Studio Code 1.86.2 (Universal)
-
-
 
 ## 1. 题目
 
