@@ -226,21 +226,10 @@ for i in range(n):
 
 
 
-代码运行截图
-
-<img width="751" alt="截屏2024-03-26 16 25 33" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/45d0d110-b699-4537-b7b4-af6dda235a81">
-
-
-
 
 ### 24750: 根据二叉树中后序序列建树
 
 http://cs101.openjudge.cn/practice/24750/
-
-
-
-思路：
-
 
 
 代码
@@ -249,10 +238,6 @@ http://cs101.openjudge.cn/practice/24750/
 # 
 
 ```
-
-
-
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
 
 
@@ -263,11 +248,6 @@ http://cs101.openjudge.cn/practice/24750/
 http://cs101.openjudge.cn/practice/22158/
 
 
-
-思路：
-
-
-
 代码
 
 ```python
@@ -277,15 +257,10 @@ http://cs101.openjudge.cn/practice/22158/
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
-
-
-
 
 
 ## 2. 学习总结和收获
 
-最近课程有所遗落，本周作业有两题未完成，近期补上
 
 
 
