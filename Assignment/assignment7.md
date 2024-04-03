@@ -6,7 +6,9 @@
 
 **编程环境**
 
+操作系统：macOS Monota 14.1.1
 
+Python编程环境：Visual Studio Code 1.86.2 (Universal)
 
 
 ## 1. 题目
@@ -17,20 +19,17 @@ http://cs101.openjudge.cn/practice/27706/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
-# 
+word_list = input().split()[::-1]
+print(*word_list)
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
 
 
@@ -42,20 +41,31 @@ http://cs101.openjudge.cn/practice/27951/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
-# 
+from collections import deque
+
+def time(M, word_list):
+    queue = deque()
+    time = 0
+    for word in word_list:
+        if word not in queue:
+            if len(queue) == M:
+                queue.popleft()
+            queue.append(word)
+            time += 1
+    return time
+
+M, N = map(int, input().split())
+word_list = input().split()
+print(time(M, word_list))
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
 
 
