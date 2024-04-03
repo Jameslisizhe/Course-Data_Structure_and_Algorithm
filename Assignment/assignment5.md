@@ -120,45 +120,47 @@ http://cs101.openjudge.cn/practice/02775/
 代码
 
 ```python
-def arrangement(file):
-    stack = []
-    print("ROOT")
-    depth = 0
-    for i in range(len(file)):
-        if file[i][0] == "f":
-            stack.append([file[i], depth])
-        elif file[i][0] == "d":
-            depth += 1 
-            print("|     " * depth, file[i], sep="")
-        elif file[i][0] == "]":
-            temp = []
-            while stack != [] and stack[-1][1] == depth:
-                temp.append(stack.pop()[0])
-            temp.sort()
-            for temp_file in temp:
-                print("|     " * depth, temp_file, sep="")
-            depth -= 1
-    stack.sort()
-    for temp_file in stack:
-        print(temp_file[0], sep = '')
+from sys import exit
+
+
+class Dir:
+    def __init__(self, name):
+        self.name = name
+        self.dir = []
+        self.file = []
+
+
+def construct():
+    stack = [Dir("ROOT")]
+    while (file_dir := input()) not in {"*", "#"}:
+        if file_dir[0] == "d":
+            dir = Dir(file_dir)
+            stack[-1].dir.append(dir)
+            stack.append(dir)
+        elif file_dir[0] == "f":
+            stack[-1].file.append(file_dir)
+        elif file_dir == "]":
+            stack.pop()
+    if file_dir == "*":
+        return stack[0]
+    else:
+        exit(0)
+
+
+def graph_print(root, depth):
+    print("|     " * depth + root.name)
+    for dir in root.dir:
+        graph_print(dir, depth + 1)
+    for file in sorted(root.file):
+        print("|     " * depth + file)
 
 set_num = 0
 while True:
     set_num += 1
-    file = []
-    while True:
-        a = input()
-        if a != '*' and a != '#':
-            file.append(a)
-        else:
-            break
-    if a == '#':
-        break
-    if set_num != 1:
-        print("\nDATA SET %d:" % set_num)
-    else:
-        print("DATA SET %d:" % set_num)
-    arrangement(file)
+    root = construct()
+    print("DATA SET %d:" % set_num)
+    graph_print(root, 0)
+    print()
 
 ```
 
