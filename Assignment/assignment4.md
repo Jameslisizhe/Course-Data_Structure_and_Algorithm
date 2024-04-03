@@ -64,38 +64,26 @@ http://cs101.openjudge.cn/practice/02694/
 代码
 
 ```python
-def PolandExp(s):
-    value = s.split()
-    for i in range(len(value)):
-        if value[i] != "+" and value[i] != "-" and value[i] != "*" and value[i] != "/":
-            value[i] = float(value[i])
-    while len(value) != 1:
-        tag = []
-        for i in range(1, len(value) - 1):
-            if (
-                isinstance(value[i], float)
-                and isinstance(value[i + 1], float)
-                and isinstance(value[i - 1], str)
-            ):
-                tag.append(i)
-                if value[i - 1] == "+":
-                    value[i - 1] = value[i] + value[i + 1]
-                elif value[i - 1] == "-":
-                    value[i - 1] = value[i] - value[i + 1]
-                elif value[i - 1] == "*":
-                    value[i - 1] = value[i] * value[i + 1]
-                elif value[i - 1] == "/":
-                    value[i - 1] = value[i] / value[i + 1]
-        tag.reverse()
-        for i in tag:
-            del value[i + 1]
-            del value[i]
-    print("%f" % value[0])
-
+def Poland_exp(exp):
+    stack = []
+    for token in exp.split():
+        stack.append(token)
+        while len(stack) > 1 and stack[-2] not in {'+', "-", "*", '/'} and stack[-1] not in {'+', "-", "*", '/'}:
+                right_operand = float(stack.pop())
+                left_operand = float(stack.pop())
+                operator = stack.pop()
+                if operator == '+':
+                    stack.append(left_operand + right_operand)
+                elif operator == '-':
+                    stack.append(left_operand - right_operand)
+                elif operator == '*':
+                    stack.append(left_operand * right_operand)
+                elif operator == '/':
+                    stack.append(left_operand / right_operand)
+    return stack[0]
 
 s = input()
-PolandExp(s)
-
+print("%f" % Poland_exp(s))
 
 ```
 
