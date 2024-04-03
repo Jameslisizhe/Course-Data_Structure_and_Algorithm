@@ -65,12 +65,6 @@ print(depth_tree(root(tree_list), tree_list) - 1, leaf_num(tree_list))
 
 
 
-代码运行截图
-
-<img width="953" alt="截屏2024-03-25 16 41 14" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/567597b3-16ee-4b84-94ac-2d0c25c30a28">
-
-
-
 
 ### 24729: 括号嵌套树
 
