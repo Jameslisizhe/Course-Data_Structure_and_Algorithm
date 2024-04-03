@@ -265,7 +265,44 @@ http://cs101.openjudge.cn/practice/22158/
 代码
 
 ```python
-# 
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def build_tree(preorder, inorder, root):
+    if preorder == inorder and len(preorder) == 1:
+        return
+    root_index = inorder.index(preorder[0])
+    left_preorder = preorder[1 : root_index + 1]
+    left_inorder = inorder[:root_index]
+    right_preorder = preorder[root_index + 1 :]
+    right_inorder = inorder[root_index + 1 :]
+    if left_preorder:
+        root.left = TreeNode(left_preorder[0])
+        build_tree(left_preorder, left_inorder, root.left)
+    if right_inorder:
+        root.right = TreeNode(right_preorder[0])
+        build_tree(right_preorder, right_inorder, root.right)
+
+
+def postorder(node):
+    if not node:
+        return ""
+    return postorder(node.left) + postorder(node.right) + node.value
+
+
+while True:
+    try:
+        preorder = input()
+        inorder = input()
+        root = TreeNode(preorder[0])
+        build_tree(preorder, inorder, root)
+        print(postorder(root))
+    except EOFError:
+        break
 
 ```
 
