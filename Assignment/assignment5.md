@@ -312,8 +312,42 @@ while True:
 
 ## 2. 学习总结和收获
 
+二叉树的前中后序序列
+
+```python
+def preorder(node):
+    if not node:
+        return ""
+    return node.value + preorder(node.left) + preorder(node.right)
 
 
+def inorder(node):
+    if not node:
+        return ""
+    return preorder(node.left) + node.value + preorder(node.right)
 
+
+def postorder(node):
+    if not node:
+        return ""
+    return postorder(node.left) + postorder(node.right) + node.value
+
+```
+
+多叉树的前后序序列
+
+```python
+def preorder(node):
+    if node.children == []:
+        return node.value
+    return node.value + "".join(map(preorder, node.children))
+
+
+def postorder(node):
+    if node.children == []:
+        return node.value
+    return "".join(map(postorder, node.children)) + node.value
+
+```
 
 
