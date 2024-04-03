@@ -95,17 +95,16 @@ def postorder(node):
 
 
 exp = input()
-stack = []
-for char in exp:
+node = root = TreeNode(exp[0])
+stack = [root]
+for char in exp[1:]:
     if char.isalpha():
         node = TreeNode(char)
-        if stack:
-            stack[-1].children.append(node)
+        stack[-1].children.append(node)
     elif char == "(":
         stack.append(node)
     elif char == ")":
-        node = stack.pop()
-root = node
+        stack.pop()
 print(preorder(root))
 print(postorder(root))
 
