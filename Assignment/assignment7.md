@@ -109,7 +109,37 @@ http://cs101.openjudge.cn/practice/27948/
 代码
 
 ```python
-# 
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def tree_type(s):
+    if all(c == '0' for c in s):
+        return 'B'
+    elif all(c == '1' for c in s):
+        return "I"
+    else:
+        return "F"
+
+
+def build_tree(S):
+    if len(S) == 1:
+        return TreeNode(tree_type(S))
+    root = TreeNode(tree_type(S))
+    root.left = build_tree(S[:len(S)//2])
+    root.right = build_tree(S[len(S)//2:])
+    return root
+
+def postorder(node):
+    if not node:
+        return ""
+    return postorder(node.left) + postorder(node.right) + node.value
+
+N = int(input())
+S = input()
+print(postorder(build_tree(S)))
 
 ```
 
