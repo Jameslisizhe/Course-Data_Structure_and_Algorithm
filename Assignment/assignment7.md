@@ -153,10 +153,6 @@ http://cs101.openjudge.cn/practice/27925/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
@@ -204,10 +200,6 @@ while (op := input().split()) != ["STOP"]:
 ### 27928: 遍历树
 
 http://cs101.openjudge.cn/practice/27928/
-
-
-
-思路：
 
 
 
