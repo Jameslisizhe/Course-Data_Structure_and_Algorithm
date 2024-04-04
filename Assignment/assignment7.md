@@ -77,14 +77,16 @@ http://cs101.openjudge.cn/practice/27932/
 
 
 
-思路：
+思路：需考虑k=0和n的边界情况
 
 
 
 代码
 
 ```python
-# 
+n, k = map(int, input().split())
+a = [1] + sorted(list(map(int, input().split())))
+print(a[k] if k == n or a[k + 1] - a[k] else -1)
 
 ```
 
