@@ -102,10 +102,6 @@ http://cs101.openjudge.cn/practice/27948/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
