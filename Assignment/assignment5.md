@@ -223,20 +223,14 @@ class TreeNode:
         self.right = None
 
 
-def build_tree(inorder, postorder, root):
-    if inorder == postorder and len(inorder) == 1:
-        return
-    root_index = inorder.index(postorder[-1])
-    left_inorder = inorder[:root_index]
-    left_postorder = postorder[:root_index]
-    right_inorder = inorder[root_index + 1 :]
-    right_postorder = postorder[root_index:-1]
-    if left_inorder:
-        root.left = TreeNode(left_postorder[-1])
-        build_tree(left_inorder, left_postorder, root.left)
-    if right_inorder:
-        root.right = TreeNode(right_postorder[-1])
-        build_tree(right_inorder, right_postorder, root.right)
+def build_tree(inorder, postorder):
+    if not inorder:
+        return None
+    root = TreeNode(postorder[-1])
+    index = inorder.index(postorder[-1])
+    root.left = build_tree(inorder[:index], postorder[:index])
+    root.right = build_tree(inorder[index + 1 :], postorder[index:-1])
+    return root
 
 
 def preorder(node):
@@ -244,12 +238,10 @@ def preorder(node):
         return ""
     return node.value + preorder(node.left) + preorder(node.right)
 
+
 inorder = input()
 postorder = input()
-root = TreeNode(postorder[-1])
-build_tree(inorder, postorder, root)
-print(preorder(root))
-
+print(preorder(build_tree(inorder, postorder)))
 
 ```
 
