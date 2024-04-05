@@ -31,6 +31,7 @@ print(*word_list)
 
 代码运行截图
 
+<img width="955" alt="截屏2024-04-05 08 54 37" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/c2c566be-13fe-4a7f-8438-ba94ccca2ee6">
 
 
 
@@ -67,6 +68,7 @@ print(time(M, word_list))
 
 代码运行截图
 
+<img width="948" alt="截屏2024-04-05 08 55 09" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/44792ba2-5c53-4dfe-8fea-49562bd48194">
 
 
 
@@ -92,8 +94,9 @@ print(edited_list[k] if k == n or edited_list[k + 1] - edited_list[k] else -1)
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="951" alt="截屏2024-04-05 08 55 45" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/ef582fac-aed0-4f23-b846-f00091237482">
 
 
 
@@ -143,9 +146,10 @@ print(postorder(build_tree(S)))
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
 
+<img width="955" alt="截屏2024-04-05 08 56 28" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/be8ea37d-3881-4602-890e-91ee389edd31">
 
 
 
@@ -193,8 +197,9 @@ while (op := input().split()) != ["STOP"]:
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="958" alt="截屏2024-04-05 08 56 53" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/8bc41bd0-f24b-411a-bc60-ddbcc3faf526">
 
 
 
@@ -244,15 +249,18 @@ traverse_print(root, nodes)
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
+代码运行截图
 
+<img width="954" alt="截屏2024-04-05 08 57 28" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/8d51f1e1-110e-4a50-a6df-f6df5e9e494f">
 
 
 
 
 ## 2. 学习总结和收获
 
-==如果作业题目简单，有否额外练习题目，比如：OJ“2024spring每日选做”、CF、LeetCode、洛谷等网站题目。==
+月考题目思维难度不大，但是细节需要十分注意。近期将所有课程已全部补上，对树有了更深的理解，也总结了许多常用的树相关函数。
+
+班上大佬太多，作为C语言选手，仍需努力熟练Python的语法和包的使用，争取让代码更加简洁、高效。
 
 
 
