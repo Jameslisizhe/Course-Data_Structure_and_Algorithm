@@ -264,20 +264,14 @@ class TreeNode:
         self.right = None
 
 
-def build_tree(preorder, inorder, root):
-    if preorder == inorder and len(preorder) == 1:
-        return
-    root_index = inorder.index(preorder[0])
-    left_preorder = preorder[1 : root_index + 1]
-    left_inorder = inorder[:root_index]
-    right_preorder = preorder[root_index + 1 :]
-    right_inorder = inorder[root_index + 1 :]
-    if left_preorder:
-        root.left = TreeNode(left_preorder[0])
-        build_tree(left_preorder, left_inorder, root.left)
-    if right_inorder:
-        root.right = TreeNode(right_preorder[0])
-        build_tree(right_preorder, right_inorder, root.right)
+def build_tree(preorder, inorder):
+    if not preorder:
+        return None
+    root = TreeNode(preorder[0])
+    index = inorder.index(preorder[0])
+    root.left = build_tree(preorder[1 : index + 1], inorder[:index])
+    root.right = build_tree(preorder[index + 1 :], inorder[index + 1 :])
+    return root
 
 
 def postorder(node):
@@ -290,9 +284,7 @@ while True:
     try:
         preorder = input()
         inorder = input()
-        root = TreeNode(preorder[0])
-        build_tree(preorder, inorder, root)
-        print(postorder(root))
+        print(postorder(build_tree(preorder, inorder)))
     except EOFError:
         break
 
