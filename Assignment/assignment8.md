@@ -2,7 +2,10 @@
 
 2024 spring, Complied by 李思哲 物理学院
 
-
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+|   Data1  |   Data2  |   Data3  |
+|   Data4  |   Data5  |   Data6  |
 
 **编程环境**
 
