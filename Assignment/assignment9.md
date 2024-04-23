@@ -27,7 +27,29 @@ http://cs101.openjudge.cn/dsapre/04081/
 代码
 
 ```python
-# 
+def tree_heights(s):
+    old_height = 0
+    max_old = 0
+    new_height = 0
+    max_new = 0
+    stack = []
+    for c in s:
+        if c == 'd':
+            old_height += 1
+            max_old = max(max_old, old_height)
+
+            new_height += 1
+            stack.append(new_height)
+            max_new = max(max_new, new_height)
+        else:
+            old_height -= 1
+
+            new_height = stack[-1]
+            stack.pop()
+    return f"{max_old} => {max_new}"
+
+s = input().strip()
+print(tree_heights(s))
 
 ```
 
