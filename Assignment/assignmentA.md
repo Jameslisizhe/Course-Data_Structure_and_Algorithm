@@ -112,14 +112,23 @@ http://cs101.openjudge.cn/practice/01426/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
-# 
+def findMultiple(n):
+    t = 0
+    while True:
+        t += 1
+        m = int(bin(t)[2:])
+        if m % n == 0:
+            return m
+
+while True:
+    n = int(input())
+    if n:
+        print(findMultiple(n))
+    else:
+        break
 
 ```
 
@@ -127,6 +136,7 @@ http://cs101.openjudge.cn/practice/01426/
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
+<img width="952" alt="截屏2024-04-30 20 46 43" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/7f904b90-6649-45ff-b784-19600fc6ef99">
 
 
 
