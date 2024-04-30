@@ -60,14 +60,38 @@ http://cs101.openjudge.cn/practice/02255/
 
 
 
-思路：
-
-
-
 代码
 
 ```python
-# 
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def build_tree(preorder, inorder):
+    if not preorder:
+        return None
+    root = TreeNode(preorder[0])
+    index = inorder.index(preorder[0])
+    root.left = build_tree(preorder[1 : index + 1], inorder[:index])
+    root.right = build_tree(preorder[index + 1 :], inorder[index + 1 :])
+    return root
+
+
+def postorder(node):
+    if not node:
+        return ""
+    return postorder(node.left) + postorder(node.right) + node.value
+
+
+while True:
+    try:
+        preorder, inorder = input().split()
+        print(postorder(build_tree(preorder, inorder)))
+    except EOFError:
+        break
 
 ```
 
@@ -75,6 +99,7 @@ http://cs101.openjudge.cn/practice/02255/
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
+<img width="949" alt="截屏2024-04-30 20 19 57" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/344210af-816b-4de3-9259-3e15ab5c094b">
 
 
 
