@@ -1,24 +1,10 @@
 # Assignment #A: 图论：算法，树算及栈
 
-Updated 2018 GMT+8 Apr 21, 2024
-
-2024 spring, Complied by ==同学的姓名、院系==
-
-
-
-**说明：**
-
-1）请把每个题目解题思路（可选），源码Python, 或者C++（已经在Codeforces/Openjudge上AC），截图（包含Accepted），填写到下面作业模版中（推荐使用 typora https://typoraio.cn ，或者用word）。AC 或者没有AC，都请标上每个题目大致花费时间。
-
-2）提交时候先提交pdf文件，再把md或者doc文件上传到右侧“作业评论”。Canvas需要有同学清晰头像、提交文件有pdf、"作业评论"区有上传的md或者doc附件。
-
-3）如果不能在截止前提交作业，请写明原因。
+2024 spring, Complied by 李思哲 物理学院
 
 
 
 **编程环境**
-
-==（请改为同学的操作系统、编程环境等）==
 
 操作系统：macOS Ventura 13.4.1 (c)
 
@@ -43,14 +29,29 @@ http://cs101.openjudge.cn/practice/20743/
 代码
 
 ```python
-# 
+def translate(s):
+    stack = []
+    queue = []
+    for char in s:
+        if char != ")":
+            stack.append(char)
+        else:
+            while (a := stack.pop()) != "(":
+                queue.append(a)
+            while queue:
+                stack.append(queue.pop(0))
+    return "".join(stack)
+
+s = input()
+print(translate(s))
 
 ```
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
+代码运行截图
 
+<img width="959" alt="截屏2024-04-30 20 14 47" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/51201d01-5b4c-470e-af2a-352f0fdb17b7">
 
 
 
