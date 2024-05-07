@@ -147,7 +147,7 @@ else:
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
-<img width="1097" alt="截屏2024-05-07 22 36 54" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/b46455ea-e4bc-434d-80bf-c3580eb783ae">
+<img width="1009" alt="截屏2024-05-07 23 26 59" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/bb89c2fd-6881-412a-8fd6-a0d27a77bcd0">
 
 
 
