@@ -146,7 +146,49 @@ http://cs101.openjudge.cn/practice/27635/
 代码
 
 ```python
-# 
+def is_connected(graph, n):
+    visited = [False] * n
+    stack = [0]
+    visited[0] = True
+
+    while stack:
+        node = stack.pop()
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                stack.append(neighbor)
+                visited[neighbor] = True
+
+    return all(visited)
+
+def has_cycle(graph, n):
+    def dfs(node, visited, parent):
+        visited[node] = True
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                if dfs(neighbor, visited, node):
+                    return True
+            elif parent != neighbor:
+                return True
+        return False
+
+    visited = [False] * n
+    for node in range(n):
+        if not visited[node]:
+            if dfs(node, visited, -1):
+                return True
+    return False
+
+n, m = map(int, input().split())
+graph = [[] for _ in range(n)]
+for _ in range(m):
+    u, v = map(int, input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+connected = is_connected(graph, n)
+has_loop = has_cycle(graph, n)
+print("connected:yes" if connected else "connected:no")
+print("loop:yes" if has_loop else "loop:no")
 
 ```
 
@@ -154,6 +196,7 @@ http://cs101.openjudge.cn/practice/27635/
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
+<img width="953" alt="截屏2024-05-21 19 31 39" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/1aef3096-69a8-40c9-8335-2cbe529ccce2">
 
 
 
