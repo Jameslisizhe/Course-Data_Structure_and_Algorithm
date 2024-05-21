@@ -56,15 +56,21 @@ print(treeNum)
 http://cs101.openjudge.cn/practice/20449/
 
 
-
-思路：
-
-
-
 代码
 
 ```python
-# 
+def isDividedby5(A):
+    answer = ""
+    for i in range(len(A)):
+        if int(A[: i + 1], 2) % 5 == 0:
+            answer += "1"
+        else:
+            answer += "0"
+    print(answer)
+
+
+A = input()
+isDividedby5(A)
 
 ```
 
@@ -72,6 +78,7 @@ http://cs101.openjudge.cn/practice/20449/
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
+<img width="962" alt="截屏2024-05-21 19 20 56" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/67a03861-7171-4294-8706-1acb0c9dd18c">
 
 
 
