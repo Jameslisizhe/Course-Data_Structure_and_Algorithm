@@ -268,7 +268,16 @@ http://cs101.openjudge.cn/practice/28190/
 代码
 
 ```python
-# 
+from bisect import bisect_right as bl
+lis,q1,q2,ans=[int(input())for _ in range(int(input()))],[-1],[-1],0
+for i in range(len(lis)):
+    while len(q1)>1 and lis[q1[-1]]>=lis[i]:q1.pop()
+    while len(q2)>1 and lis[q2[-1]]<lis[i]:q2.pop()
+    id=bl(q1,q2[-1])
+    if id<len(q1):ans=max(ans,i-q1[id]+1)
+    q1.append(i)
+    q2.append(i)
+print(ans)
 
 ```
 
@@ -276,6 +285,7 @@ http://cs101.openjudge.cn/practice/28190/
 
 代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
 
+<img width="953" alt="截屏2024-05-21 19 36 38" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/eb458856-30a5-4fe5-8ff5-db1be8fd7703">
 
 
 
@@ -284,7 +294,7 @@ http://cs101.openjudge.cn/practice/28190/
 
 ==如果作业题目简单，有否额外练习题目，比如：OJ“2024spring每日选做”、CF、LeetCode、洛谷等网站题目。==
 
-
+看完题解后，有部分答案还是挺有值得学习的地方，数算不能自己孤军奋战，需要积极学习别人的写法以提升自己
 
 
 
