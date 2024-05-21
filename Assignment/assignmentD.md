@@ -19,14 +19,26 @@ http://cs101.openjudge.cn/practice/02808/
 
 
 
-思路：
+思路：在每个节点对起止点进行标记，当一个位置有多个起止点时，采用数字累加的方式
 
 
 
 代码
 
 ```python
-# 
+L, M = map(int, input().split())
+treeList = [0 for i in range(L + 1)]
+treeNum = 0
+for i in range(M):
+    intervalBegin, intervalEnd = map(int, input().split())
+    treeList[intervalBegin] += 1
+    treeList[intervalEnd] -= 1
+tag = 0
+for i in range(L + 1):
+    if tag == 0 and treeList[i] == 0:
+        treeNum += 1
+    tag += treeList[i]
+print(treeNum)
 
 ```
 
@@ -34,6 +46,7 @@ http://cs101.openjudge.cn/practice/02808/
 
 代码运行截图 ==（至少包含有"Accepted"）==
 
+<img width="964" alt="截屏2024-05-21 19 11 02" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/578c235d-f4b1-49b3-8fbf-81d0738439eb">
 
 
 
