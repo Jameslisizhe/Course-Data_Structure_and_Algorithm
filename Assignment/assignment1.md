@@ -201,3 +201,14 @@ def is_prime(n):
 ```
 
 
+collections.Counter
+
+```python
+from collections import Counter
+
+counter = Counter(list)
+counter.most_common(n) # find the most common n value
+
+```
+
+
