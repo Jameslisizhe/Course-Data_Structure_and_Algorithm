@@ -175,14 +175,37 @@ data structure/binary search, http://cs101.openjudge.cn/practice/03441
 
 
 
-思路：
+思路：字典
 
 
 
 代码
 
 ```python
-# 
+from collections import defaultdict
+
+def find_0_sum(A, B, C, D):
+    ABdict = defaultdict(int)
+    num = 0
+    for a in A:
+        for b in B:
+            ABdict[a + b] += 1
+    for c in C:
+        for d in D:
+            if - c - d in ABdict:
+                num += ABdict[- c - d]
+    return num
+
+
+n = int(input())
+A, B, C, D = [], [], [],[]
+for i in range(n):
+    a, b, c, d = map(int, input().split())
+    A.append(a)
+    B.append(b)
+    C.append(c)
+    D.append(d)
+print(find_0_sum(A, B, C, D))
 
 ```
 
