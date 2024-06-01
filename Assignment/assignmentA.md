@@ -47,7 +47,7 @@ print(translate(s))
 
 http://cs101.openjudge.cn/practice/02255/
 
-
+思路：前序中序建树，与
 
 代码
 
@@ -83,12 +83,6 @@ while True:
         break
 
 ```
-
-
-
-代码运行截图
-
-<img width="949" alt="截屏2024-04-30 20 19 57" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/344210af-816b-4de3-9259-3e15ab5c094b">
 
 
 
