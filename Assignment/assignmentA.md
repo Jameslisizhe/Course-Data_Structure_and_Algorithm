@@ -19,17 +19,14 @@ Python编程环境：Visual Studio Code 1.86.2 (Universal)
 http://cs101.openjudge.cn/practice/20743/
 
 
-
-思路：
-
-
-
 代码
 
 ```python
+from collections import deque
+
 def translate(s):
     stack = []
-    queue = []
+    queue = deque()
     for char in s:
         if char != ")":
             stack.append(char)
@@ -37,12 +34,11 @@ def translate(s):
             while (a := stack.pop()) != "(":
                 queue.append(a)
             while queue:
-                stack.append(queue.pop(0))
+                stack.append(queue.popleft())
     return "".join(stack)
 
 s = input()
 print(translate(s))
-
 ```
 
 
