@@ -80,12 +80,6 @@ for i in range(n):
 
 
 
-代码运行截图
-
-<img width="966" alt="截屏2024-04-09 18 46 12" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/4b487a07-05f0-4cc1-938e-9538292ee43d">
-
-
-
 
 ### 18160: 最大连通域面积
 
