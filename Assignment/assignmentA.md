@@ -43,13 +43,6 @@ print(translate(s))
 
 
 
-代码运行截图
-
-<img width="959" alt="截屏2024-04-30 20 14 47" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/51201d01-5b4c-470e-af2a-352f0fdb17b7">
-
-
-
-
 ### 02255: 重建二叉树
 
 http://cs101.openjudge.cn/practice/02255/
