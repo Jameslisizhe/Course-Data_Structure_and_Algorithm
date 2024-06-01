@@ -47,7 +47,7 @@ print(translate(s))
 
 http://cs101.openjudge.cn/practice/02255/
 
-思路：前序中序建树，与
+思路：前序中序建树，与22158一致
 
 代码
 
