@@ -95,12 +95,6 @@ print(postorder(tree))
 
 
 
-代码运行截图 ==（至少包含有"Accepted"）==
-
-<img width="995" alt="截屏2024-04-23 18 22 31" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/db5a4bbb-7a2e-4376-acd1-3c047f68bec0">
-
-
-
 
 ### 22067: 快速堆猪
 
