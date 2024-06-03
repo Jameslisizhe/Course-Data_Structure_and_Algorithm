@@ -108,7 +108,7 @@ http://cs101.openjudge.cn/practice/22067/
 
 
 
-思路：
+思路：同时利用堆和字典
 
 
 
@@ -118,32 +118,30 @@ http://cs101.openjudge.cn/practice/22067/
 import heapq
 from collections import defaultdict
 
-out = defaultdict(int)
-pigs_heap = []
-pigs_stack = []
+stack = []
+dict = defaultdict(int)
+heap = []
 
 while True:
     try:
-        s = input()
+        op = input()
     except EOFError:
         break
 
-    if s == "pop":
-        if pigs_stack:
-            out[pigs_stack.pop()] += 1
-    elif s == "min":
-        if pigs_stack:
-            while True:
-                x = heapq.heappop(pigs_heap)
-                if not out[x]:
-                    heapq.heappush(pigs_heap, x)
-                    print(x)
-                    break
-                out[x] -= 1
-    else:
-        y = int(s.split()[1])
-        pigs_stack.append(y)
-        heapq.heappush(pigs_heap, y)
+    if op[:4] == "push":
+        pushing_item = int(op.split()[1])
+        stack.append(pushing_item)
+        dict[pushing_item] += 1
+        heapq.heappush(heap, pushing_item)
+    elif op == "pop" and stack:
+        dict[stack.pop()] -= 1
+    elif op == "min" and stack:
+        while True:
+            if dict[(poped_item := heapq.heappop(heap))]:
+                print(poped_item)
+                heapq.heappush(heap, poped_item)
+                break
+
 
 ```
 
