@@ -308,7 +308,7 @@ def preorder(node):
 def inorder(node):
     if not node:
         return ""
-    return preorder(node.left) + node.value + preorder(node.right)
+    return inorder(node.left) + node.value + inorder(node.right)
 
 
 def postorder(node):
