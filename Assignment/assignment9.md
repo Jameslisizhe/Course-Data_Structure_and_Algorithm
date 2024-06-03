@@ -141,12 +141,6 @@ while True:
 
 
 
-代码运行截图 ==（AC代码截图，至少包含有"Accepted"）==
-
-<img width="970" alt="截屏2024-04-23 18 23 29" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/a68a45da-28de-48af-bbb2-fc5864bfd988">
-
-
-
 
 ### 04123: 马走日
 
