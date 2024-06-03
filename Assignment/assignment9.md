@@ -27,38 +27,30 @@ http://cs101.openjudge.cn/dsapre/04081/
 代码
 
 ```python
-def tree_heights(s):
-    old_height = 0
-    max_old = 0
-    new_height = 0
-    max_new = 0
+def tree_height(string):
+    max_height1 = 0
+    max_height2 = 0
+    height1 = 0
+    height2 = 0
     stack = []
-    for c in s:
-        if c == 'd':
-            old_height += 1
-            max_old = max(max_old, old_height)
+    for op in string:
+        if op == "d":
+            height1 += 1
+            max_height1 = max(max_height1, height1)
 
-            new_height += 1
-            stack.append(new_height)
-            max_new = max(max_new, new_height)
+            height2 += 1
+            stack.append(height2)
+            max_height2 = max(max_height2, height2)
         else:
-            old_height -= 1
+            height1 -= 1
 
-            new_height = stack[-1]
-            stack.pop()
-    return f"{max_old} => {max_new}"
+            height2 = stack.pop()
+    return f"{max_height1} => {max_height2}"
 
-s = input().strip()
-print(tree_heights(s))
+
+print(tree_height(input()))
 
 ```
-
-
-
-代码运行截图 ==（至少包含有"Accepted"）==
-
-<img width="971" alt="截屏2024-04-23 18 21 05" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/f403be50-8f3a-40fd-b36d-e79fbb4304e8">
-
 
 
 
