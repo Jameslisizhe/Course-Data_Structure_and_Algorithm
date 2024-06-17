@@ -2,7 +2,6 @@
 
 
 
-https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/?ref=outind
 
 ## What is DSA?
 
@@ -923,76 +922,6 @@ Highly tuned implementations use more sophisticated variants, such as [Timsort](
 
 
 
-# 二、编程题目
-
-02810: 完美立方
-
-bruteforce, http://cs101.openjudge.cn/practice/02810
-
-可以用字典或者桶优化
-
-
-
-02808: 校门外的树
-
-implementation, http://cs101.openjudge.cn/practice/02808
-
-
-
-04146: 数字方格
-
-math, http://cs101.openjudge.cn/practice/04146
-
-
-
-230B. T-primes
-
-binary search/implementation/math/number theory, 1300
-
-http://codeforces.com/problemset/problem/230/B
-
-提示：筛法
-
-
-
-18176: 2050年成绩计算
-
-http://cs101.openjudge.cn/2024sp_routine/18176/
-
-提示：筛法
-
-
-
-12559: 最大最小整数
-
-greedy/strings/sortings, http://cs101.openjudge.cn/practice/12559
-
-提示：可以考虑冒泡排序
-
-
-
-27373: 最大整数
-
-http://cs101.openjudge.cn/practice/27373
-
-
-
-27301:给植物浇水
-
-tow pointers, http://cs101.openjudge.cn/practice/27301
-
-
-
-
-
-27274:字符串提炼
-
-tow pointers, http://cs101.openjudge.cn/practice/27274
-
-
-
-
-
 # 三、笔试题目
 
 ## 选择（30分，每题2分）
@@ -1579,98 +1508,4 @@ print(path)
 
 ```
 
-
-
-
-
-# 参考
-
-Introduction to Algorithms, 3rd Edition (Mit Press) 3rd Edition, by Thomas H Cormen, Charles E Leiserson, Ronald L Rivest, Clifford Stein
-
-https://dahlan.unimal.ac.id/files/ebooks/2009%20Introduction%20to%20Algorithms%20Third%20Ed.pdf
-
-or
-
-https://github.com/calvint/AlgorithmsOneProblems/blob/master/Algorithms/Thomas%20H.%20Cormen,%20Charles%20E.%20Leiserson,%20Ronald%20L.%20Rivest,%20Clifford%20Stein%20Introduction%20to%20Algorithms,%20Third%20Edition%20%202009.pdf
-
-
-
-Complexity of Python Operations 数据类型操作时间复杂度
-
-https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
-
-This is called "static" analysis, because we do not need to run any code to perform it (contrasted with Dynamic or Empirical Analysis, when we do run code and take measurements of its execution).
-
-
-
-Learn Data Structures and Algorithms | DSA Tutorial
-
-https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/?ref=outind
-
-
-
-# 附录
-
-## Puzzle
-
-22507:薛定谔的二叉树
-
-http://cs101.openjudge.cn/practice/22507/
-
-假设二叉树的节点里包含一个大写字母，每个节点的字母都不同。
-给定二叉树的前序遍历序列和后序遍历序列(长度均不超过20)，请计算二叉树可能有多少种
-
-前序序列或后序序列中出现相同字母则直接认为不存在对应的树
-
-**输入**
-
-多组数据
-每组数据一行，包括前序遍历序列和后序遍历序列，用空格分开。
-输入数据不保证一定存在满足条件的二叉树。
-
-**输出**
-
-每组数据，输出不同的二叉树可能有多少种
-
-样例输入
-
-```
-ABCDE CDBEA
-BCD DCB
-AB C
-AA AA
-```
-
-样例输出
-
-```
-1
-4
-0
-0
-```
-
-来源: 刘宇航
-
-
-
-![image-20240222105900057](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20240222105900057.png)
-
-
-
-## 坑
-
-### 01035: 拼写检查
-
-http://cs101.openjudge.cn/routine/01035/
-
-
-
-字典会覆盖，有时候得避免（一个常见的坑）
-
-
-
-y第一次输出正确，第二次为什么不输出了
-
-![image-20240224011332795](https://raw.githubusercontent.com/GMyhf/img/main/img/202402240113210.png)
 
