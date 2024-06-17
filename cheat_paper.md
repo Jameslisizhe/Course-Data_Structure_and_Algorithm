@@ -1445,6 +1445,9 @@ searchMaze(path, vstart, g)
 print(path)
 
 # [(8, 14), (7, 14), (6, 14), (5, 14), (4, 14), (4, 13), (5, 13), (6, 13), (6, 12), (6, 11), (6, 10), (5, 10), (5, 9), (4, 9), (3, 9), (2, 9), (2, 8), (2, 7), (1, 7), (1, 6), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (5, 4), (4, 4), (3, 4), (2, 4), (2, 3), (1, 3), (1, 2), (2, 2), (2, 1), (2, 0)]
+```
+
+
 
 
 # Week4~6-植树节（Arbor day）
@@ -1452,13 +1455,7 @@ print(path)
 
 # 一、（Week4）树的概念和表示方法
 
-## Recap 用类写程序
 
-接下来开始学习树，大量程序会给出类的实现代码。复习一个类写法的小程序，可以debug模式运行，或者 https://pythontutor.com 可视化运行，辅助理解。类实现程序，补充缺失行代码。是笔试中必考的题目。
-
-
-
-数算的精华是复制（类的精华是复制），不需要深拷贝，只要创建多个对象，就有各自的内存空间。例如下面例子，创建了A, B两个对象，A的修改不影响B的。
 
 ```python
 class DisjSet:
@@ -1512,7 +1509,7 @@ print(B.parent)  # 输出: [0, 1, 2, 3, 4]
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20240305220241219.png" alt="image-20240305220241219" style="zoom: 50%;" />
 
-My github, https://github.com/GMyhf
+
 
 ```mermaid
 graph TD
@@ -1852,181 +1849,6 @@ class Node:
 - Many algorithms can be expressed more easily because it is just a binary tree.
 - Each node is of fixed size, so no auxiliary array or vector is required.
 
-
-
-
-
-
-### 1.2 编程题目
-
-#### 06646: 二叉树的深度
-
-http://cs101.openjudge.cn/practice/06646/
-
-给定一棵二叉树，求该二叉树的深度
-
-二叉树**深度**定义：从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的节点个数为树的深度
-
-**输入**
-
-第一行是一个整数n，表示二叉树的结点个数。二叉树结点编号从1到n，根结点为1，n <= 10
-接下来有n行，依次对应二叉树的n个节点。
-每行有两个整数，分别表示该节点的左儿子和右儿子的节点编号。如果第一个（第二个）数为-1则表示没有左（右）儿子
-
-**输出**
-
-输出一个整型数，表示树的深度
-
-样例输入
-
-```
-3
-2 3
--1 -1
--1 -1
-```
-
-样例输出
-
-```
-2
-```
-
-
-
- 推荐这种类的写法，在笔试中也常见
-
-```python
-class TreeNode:
-    def __init__(self):
-        self.left = None
-        self.right = None
-
-def tree_depth(node):
-    if node is None:
-        return 0
-    left_depth = tree_depth(node.left)
-    right_depth = tree_depth(node.right)
-    return max(left_depth, right_depth) + 1
-
-n = int(input())  # 读取节点数量
-nodes = [TreeNode() for _ in range(n)]
-
-for i in range(n):
-    left_index, right_index = map(int, input().split())
-    if left_index != -1:
-        nodes[i].left = nodes[left_index-1]
-    if right_index != -1:
-        nodes[i].right = nodes[right_index-1]
-
-root = nodes[0]
-depth = tree_depth(root)
-print(depth)
-```
-
-
-
-下面程序虽然也正确，但是数算思维更倾向于上面类的写法。
-
-```python
-# 钟明衡 物理学院
-# 用两个列表来存储每个节点左右子树的索引，判断深度用dfs进行先序遍历
-ans, l, r = 1, [-1], [-1]
-
-
-def dfs(n, count):
-    global ans, l, r
-    if l[n] != -1:
-        dfs(l[n], count + 1)
-    if r[n] != -1:
-        dfs(r[n], count + 1)
-    ans = max(ans, count)
-
-
-n = int(input())
-for i in range(n):
-    a, b = map(int, input().split())
-    l.append(a)
-    r.append(b)
-dfs(1, 1)
-print(ans)
-```
-
-
-
-#### 27638: 求二叉树的高度和叶子数目
-
-http://cs101.openjudge.cn/practice/27638/
-
-给定一棵二叉树，求该二叉树的高度和叶子数目二叉树**高度**定义：从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的结点数减1为树的高度。只有一个结点的二叉树，高度是0。
-
-**输入**
-
-第一行是一个整数n，表示二叉树的结点个数。二叉树结点编号从0到n-1，根结点n <= 100 接下来有n行，依次对应二叉树的编号为0,1,2....n-1的节点。 每行有两个整数，分别表示该节点的左儿子和右儿子的编号。如果第一个（第二个）数为-1则表示没有左（右）儿子
-
-**输出**
-
-在一行中输出2个整数，分别表示二叉树的高度和叶子结点个数
-
-样例输入
-
-```
-3
--1 -1
-0 2
--1 -1
-```
-
-样例输出
-
-```
-1 2
-```
-
-
-
-```python
-class TreeNode:
-    def __init__(self):
-        self.left = None
-        self.right = None
-
-def tree_height(node):
-    if node is None:
-        return -1  # 根据定义，空树高度为-1
-    return max(tree_height(node.left), tree_height(node.right)) + 1
-
-def count_leaves(node):
-    if node is None:
-        return 0
-    if node.left is None and node.right is None:
-        return 1
-    return count_leaves(node.left) + count_leaves(node.right)
-
-n = int(input())  # 读取节点数量
-nodes = [TreeNode() for _ in range(n)]
-has_parent = [False] * n  # 用来标记节点是否有父节点
-
-for i in range(n):
-    left_index, right_index = map(int, input().split())
-    if left_index != -1:
-        nodes[i].left = nodes[left_index]
-        has_parent[left_index] = True
-    if right_index != -1:
-        #print(right_index)
-        nodes[i].right = nodes[right_index]
-        has_parent[right_index] = True
-
-# 寻找根节点，也就是没有父节点的节点
-root_index = has_parent.index(False)
-root = nodes[root_index]
-
-# 计算高度和叶子节点数
-height = tree_height(root)
-leaves = count_leaves(root)
-
-print(f"{height} {leaves}")
-```
 
 
 
