@@ -3,13 +3,6 @@
 
 
 
-## What is DSA?
-
-DSA is defined as a combination of two separate yet interrelated topics – Data Structure and Algorithms. DSA is one of the most important skills that every computer science student must have. It is often seen that people with good knowledge of these technologies are better programmers than others and thus, crack the interviews of almost every tech giant.
-
-![img](https://raw.githubusercontent.com/GMyhf/img/main/img/202402232017469.png)
-
-
 
 ## What is Data Structure?
 
@@ -19,22 +12,9 @@ A data structure is defined as a particular way of storing and organizing data i
 
 Algorithm is defined as a process or set of well-defined instructions that are typically used to solve a particular group of problems or perform a specific type of calculation. To explain in simpler terms, it is a set of operations performed in a step-by-step manner to execute a task.
 
-## How to start learning DSA?
-
-The first and foremost thing is dividing the total procedure into little pieces which need to be done sequentially. The complete process to learn DSA from scratch can be broken into 4 parts:
-
-1. Learn about Time and Space complexities
-2. Learn the basics of individual Data Structures
-3. Learn the basics of Algorithms
-4. Practice Problems on DSA
-
 ### 1. Learn about Complexities
 
 Here comes one of the interesting and important topics. The primary motive to use DSA is to solve a problem effectively and efficiently. How can you decide if a program written by you is efficient or not? This is measured by complexities. Complexity is of two types:
-
-1. Time Complexity: Time complexity is used to measure the amount of time required to execute the code.
-2. Space Complexity: Space complexity means the amount of space required to execute successfully the functionalities of the code. 
-   You will also come across the term **Auxiliary Space** very commonly in DSA, which refers to the extra space used in the program other than the input data structure.
 
 Both of the above complexities are measured with respect to the input parameters. But here arises a problem. The time required for executing a code depends on several factors, such as: 
 
@@ -64,9 +44,6 @@ To learn about complexity analysis in detail, you can refer to articles on the *
 
 
 
-### 3. Learn Algorithms
-
-Once you have cleared the concepts of Data Structures, now its time to start your journey through the Algorithms. Based on the type of nature and usage, the Algorithms are grouped together into several categories, as shown below:
 
 #### Sorting Algorithm
 
