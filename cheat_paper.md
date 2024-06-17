@@ -316,18 +316,6 @@ https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
 
 **Sorting Algorithm** is used to rearrange a given array or list elements according to a comparison operator on the elements. The comparison operator is used to decide the new order of element in the respective data structure.
 
-There are a lot of different types of sorting algorithms. Some widely used algorithms are:
-
-- [Bubble Sort](http://www.geeksforgeeks.org/bubble-sort/)
-- [Selection Sort](http://www.geeksforgeeks.org/selection-sort/)
-- [Insertion Sort](http://www.geeksforgeeks.org/insertion-sort/)
-- [Quick Sort](http://www.geeksforgeeks.org/quick-sort/)
-- [Merge Sort](http://www.geeksforgeeks.org/merge-sort/)
-- [ShellSort](https://www.geeksforgeeks.org/shellsort/)
-
-There are several other sorting algorithms also and they are beneficial in different cases. You can learn about them and more in our dedicated article on [Sorting algorithms](https://www.geeksforgeeks.org/sorting-algorithms/).
-
-
 
 ### 1.Bubble Sort
 
