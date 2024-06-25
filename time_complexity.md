@@ -2,11 +2,7 @@
 
 ## Time Complexity
 
-### Best case
-
-### Worst case
-
-### Average case
+### Best case, Worst case & Average case
 
 ### Big O Notation
 
