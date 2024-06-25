@@ -13,6 +13,7 @@
 
 [https://github.com/Jameslisizhe](https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm)
 
+<img width="1288" alt="截屏2024-06-25 21 00 18" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/15e79cf2-28a4-4961-884d-a194f291bb6e">
 
 
 
