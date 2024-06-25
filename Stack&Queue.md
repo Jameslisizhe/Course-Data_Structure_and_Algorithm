@@ -256,3 +256,7 @@ linked_list.display_backward()  # 输出：1 2 3
 ```
 
 
+### Hash Table
+
+
+
