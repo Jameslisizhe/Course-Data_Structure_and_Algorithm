@@ -647,6 +647,390 @@ def union(parent, rank, i, j):
 
 ```
 
+图的定义与概念
+
+顶点Vertex：顶点又称节点，是图的基础部分。它可以有自己的名字，我们称作“键”。顶点也可以带有附加信息，我们称作“有效载荷”。
+
+边Edge：边是图的另一个基础部分。两个顶点通过一条边相连，表示它们之间存在关系。边既可以是单向的，也可以是双向的。如果图中的所有边都是单向的，我们称之为有向图。图1明显是一个有向图，因为必须修完某些课程后才能修后续的课程。
+
+度Degree：顶点的度是指和该顶点相连的边的条数。特别是对于有向图来说，顶点的出边条数称为该顶点的出度，顶点的入边条数称为该顶点的入度。例如图 3 的无向图中，V1的度为 2,V5的度为 4；有向图例子中，V2的出度为 1、入度为 2。
+
+权值Weight：顶点和边都可以有一定属性，而量化的属性称为权值，顶点的权值和边的权值分别称为点权和边权。权值可以根据问题的实际背景设定，例如点权可以是城市中资源的数目，边权可以是两个城市之间来往所需要的时间、花费或距离。
+
+图的表示：图可以用不同的数据结构来表示，包括邻接矩阵、邻接表、关联矩阵等。这些表示方法影响着对图进行操作和算法实现的效率。
+
+图的遍历：图的遍历是指从图中的某个顶点出发，访问图中所有顶点且不重复的过程。常见的图遍历算法包括深度优先搜索（DFS）和广度优先搜索（BFS）。
+
+最短路径：最短路径算法用于找出两个顶点之间的最短路径，例如 Dijkstra 算法和 Floyd-Warshall 算法。这些算法在网络路由、路径规划等领域有广泛的应用。
+
+最小生成树：最小生成树算法用于在一个连通加权图中找出一个权值最小的生成树，常见的算法包括 Prim 算法和 Kruskal 算法。最小生成树在网络设计、电力传输等领域有着重要的应用。
+
+图的匹配：图的匹配是指在一个图中找出一组边，使得没有两条边有一个公共顶点。匹配算法在任务分配、航线规划等问题中有着广泛的应用。
+
+拓扑排序：拓扑排序算法用于对有向无环图进行排序，使得所有的顶点按照一定的顺序排列，并且保证图中的边的方向符合顺序关系。拓扑排序在任务调度、依赖关系分析等领域有重要的应用。
+
+图的连通性：图的连通性算法用于判断图中的顶点是否连通，以及找出图中的连通分量。这对于网络分析、社交网络分析等具有重要意义。
+
+图的颜色着色：图的着色问题是指给图中的顶点赋予不同的颜色，使得相邻的顶点具有不同的颜色。这在调度问题、地图着色等方面有应用。
+
+```
+class Graph:
+    def __init__(self):
+        self.vertList = {}
+        self.numVertices = 0
+
+    def addVertex(self,key):
+        self.numVertices = self.numVertices + 1
+        newVertex = Vertex(key)
+        self.vertList[key] = newVertex
+        return newVertex
+
+    def getVertex(self,n):
+        if n in self.vertList:
+            return self.vertList[n]
+        else:
+            return None
+
+    def __contains__(self,n):
+        return n in self.vertList
+
+    def addEdge(self,f,t,weight=0):
+        if f not in self.vertList:
+            nv = self.addVertex(f)
+        if t not in self.vertList:
+            nv = self.addVertex(t)
+        self.vertList[f].addNeighbor(self.vertList[t], weight)
+
+    def getVertices(self):
+        return self.vertList.keys()
+
+    def __iter__(self):
+        return iter(self.vertList.values())
+```
+
+BFS
+
+```
+from collections import defaultdict, deque
+
+# Class to represent a graph using adjacency list
+class Graph:
+    def __init__(self):
+        self.adjList = defaultdict(list)
+
+    # Function to add an edge to the graph
+    def addEdge(self, u, v):
+        self.adjList[u].append(v)
+
+    # Function to perform Breadth First Search on a graph represented using adjacency list
+    def bfs(self, startNode):
+        # Create a queue for BFS
+        queue = deque()
+        visited = set()
+
+        # Mark the current node as visited and enqueue it
+        visited.add(startNode)
+        queue.append(startNode)
+
+        # Iterate over the queue
+        while queue:
+            # Dequeue a vertex from queue and print it
+            currentNode = queue.popleft()
+            print(currentNode, end=" ")
+
+            # Get all adjacent vertices of the dequeued vertex currentNode
+            # If an adjacent has not been visited, then mark it visited and enqueue it
+            for neighbor in self.adjList[currentNode]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+```
+
+
+DFS
+
+```
+from collections import defaultdict
+
+
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
+
+    def DFS(self, v, visited=None):
+        if visited is None:
+            visited = set()
+        visited.add(v)
+        print(v, end=' ')
+        for neighbour in self.graph[v]:
+            if neighbour not in visited:
+                self.DFS(neighbour, visited)
+
+```
+
+拓扑排序
+
+```
+import sys
+
+class Graph:
+    def __init__(self):
+        self.vertices = {}
+        self.num_vertices = 0
+
+    def add_vertex(self, key):
+        self.num_vertices = self.num_vertices + 1
+        new_ertex = Vertex(key)
+        self.vertices[key] = new_ertex
+        return new_ertex
+
+    def get_vertex(self, n):
+        if n in self.vertices:
+            return self.vertices[n]
+        else:
+            return None
+
+    def __len__(self):
+        return self.num_vertices
+
+    def __contains__(self, n):
+        return n in self.vertices
+
+    def add_edge(self, f, t, cost=0):
+        if f not in self.vertices:
+            nv = self.add_vertex(f)
+        if t not in self.vertices:
+            nv = self.add_vertex(t)
+        self.vertices[f].add_neighbor(self.vertices[t], cost)
+        #self.vertices[t].add_neighbor(self.vertices[f], cost)
+
+    def getVertices(self):
+        return list(self.vertices.keys())
+
+    def __iter__(self):
+        return iter(self.vertices.values())
+
+
+class Vertex:
+    def __init__(self, num):
+        self.key = num
+        self.connectedTo = {}
+        self.color = 'white'
+        self.distance = sys.maxsize
+        self.previous = None
+        self.discovery = 0
+        self.finish = None
+
+    def __lt__(self, o):
+        return self.key < o.key
+
+    def add_neighbor(self, nbr, weight=0):
+        self.connectedTo[nbr] = weight
+
+    def setDiscovery(self, dtime):
+        self.discovery = dtime
+
+    def setFinish(self, ftime):
+        self.finish = ftime
+
+    def getFinish(self):
+        return self.finish
+
+    def getDiscovery(self):
+        return self.discovery
+
+    def get_neighbors(self):
+        return self.connectedTo.keys()
+
+    # def getWeight(self, nbr):
+    #     return self.connectedTo[nbr]
+
+    def __str__(self):
+        return str(self.key) + ":color " + self.color + ":disc " + str(self.discovery) + ":fin " + str(
+            self.finish) + ":dist " + str(self.distance) + ":pred \n\t[" + str(self.previous) + "]\n"
+
+
+class DFSGraph(Graph):
+    def __init__(self):
+        super().__init__()
+        self.time = 0
+        self.topologicalList = []
+
+    def dfs(self):
+        for aVertex in self:
+            aVertex.color = "white"
+            aVertex.predecessor = -1
+        for aVertex in self:
+            if aVertex.color == "white":
+                self.dfsvisit(aVertex)
+
+    def dfsvisit(self, startVertex):
+        startVertex.color = "gray"
+        self.time += 1
+        startVertex.setDiscovery(self.time)
+        for nextVertex in startVertex.get_neighbors():
+            if nextVertex.color == "white":
+                nextVertex.previous = startVertex
+                self.dfsvisit(nextVertex)
+        startVertex.color = "black"
+        self.time += 1
+        startVertex.setFinish(self.time)
+
+    def topologicalSort(self):
+        self.dfs()
+        temp = list(self.vertices.values())
+        temp.sort(key = lambda x: x.getFinish(), reverse = True)
+        print([(x.key,x.finish) for x in temp])
+        self.topologicalList = [x.key for x in temp]
+        return self.topologicalList
+
+```
+
+```
+from collections import deque, defaultdict
+
+def topological_sort(graph):
+    indegree = defaultdict(int)
+    result = []
+    queue = deque()
+
+    # 计算每个顶点的入度
+    for u in graph:
+        for v in graph[u]:
+            indegree[v] += 1
+
+    # 将入度为 0 的顶点加入队列
+    for u in graph:
+        if indegree[u] == 0:
+            queue.append(u)
+
+    # 执行拓扑排序
+    while queue:
+        u = queue.popleft()
+        result.append(u)
+
+        for v in graph[u]:
+            indegree[v] -= 1
+            if indegree[v] == 0:
+                queue.append(v)
+
+    # 检查是否存在环
+    if len(result) == len(graph):
+        return result
+    else:
+        return None
+```
+
+Kosaraju算法
+
+```
+def dfs1(graph, node, visited, stack):
+    visited[node] = True
+    for neighbor in graph[node]:
+        if not visited[neighbor]:
+            dfs1(graph, neighbor, visited, stack)
+    stack.append(node)
+
+def dfs2(graph, node, visited, component):
+    visited[node] = True
+    component.append(node)
+    for neighbor in graph[node]:
+        if not visited[neighbor]:
+            dfs2(graph, neighbor, visited, component)
+
+def kosaraju(graph):
+    # Step 1: Perform first DFS to get finishing times
+    stack = []
+    visited = [False] * len(graph)
+    for node in range(len(graph)):
+        if not visited[node]:
+            dfs1(graph, node, visited, stack)
+    
+    # Step 2: Transpose the graph
+    transposed_graph = [[] for _ in range(len(graph))]
+    for node in range(len(graph)):
+        for neighbor in graph[node]:
+            transposed_graph[neighbor].append(node)
+    
+    # Step 3: Perform second DFS on the transposed graph to find SCCs
+    visited = [False] * len(graph)
+    sccs = []
+    while stack:
+        node = stack.pop()
+        if not visited[node]:
+            scc = []
+            dfs2(transposed_graph, node, visited, scc)
+            sccs.append(scc)
+    return sccs
+```
+
+Dijkstra算法
+
+```
+# https://github.com/psads/pythonds3
+from pythonds3.graphs import PriorityQueue
+def dijkstra(graph,start):
+    pq = PriorityQueue()
+    start.setDistance(0)
+    pq.buildHeap([(v.getDistance(),v) for v in graph])
+    while pq:
+        distance, current_v = pq.delete()
+        for next_v in current_v.getneighbors():
+            new_distance = current_v.distance + current_v.get_neighbor(next_v) # + get_weight
+            if new_distance < next_v.distance:
+                next_v.distance = new_distance
+                next_v.previous = current_v
+                pq.change_priority(next_v,new_distance)
+
+from pythonds3.trees.binary_heap import BinaryHeap
+class PriorityQueue(BinaryHeap):
+    def change_priority(self, search_key: Any, new_priority: Any) -> None:
+        key_to_move = -1
+        for i, (_, key) in enumerate(self._heap):
+            if key == search_key:
+                key_to_move = i
+                break
+        if key_to_move > -1:
+            self._heap[key_to_move] = (new_priority, search_key)
+            self._perc_up(key_to_move)
+
+    def __contains__(self, search_key: Any) -> bool:
+        for _, key in self._heap:
+            if key == search_key:
+                return True
+        return False
+```
+
+Prim算法
+
+
+```
+# https://github.com/psads/pythonds3
+from pythonds3.graphs import PriorityQueue
+
+def prim(graph,start):
+    pq = PriorityQueue()
+    for vertex in graph:
+        vertex.distance = sys.maxsize
+        vertex.previous = None
+    start.distance = 0
+    pq.buildHeap([(v.distance,v) for v in graph])
+    while pq:
+        distance, current_v = pq.delete()
+        for next_v in current_v.get_eighbors():
+          new_distance = current_v.get_neighbor(next_v)
+          if next_v in pq and new_distance < next_v.distance:
+              next_v.previous = current_v
+              next_v.distance = new_distance
+              pq.change_priority(next_v,new_distance)
+```
+
+
+
+
 
 
 
