@@ -180,6 +180,43 @@ if __name__ == '__main__':
 
 ### Shell Sort 希尔排序
 
+直接插入排序的变体，希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至 1 时，整个文件恰被分成一组，算法便终止。
+
+```
+def shellSort(arr, n):
+    # code here
+    gap = n // 2
+
+    while gap > 0:
+        j = gap
+        # Check the array in from left to right
+        # Till the last possible index of j
+        while j < n:
+            i = j - gap  # This will keep help in maintain gap value
+
+            while i >= 0:
+                # If value on right side is already greater than left side value
+                # We don't do swap else we swap
+                if arr[i + gap] > arr[i]:
+                    break
+                else:
+                    arr[i + gap], arr[i] = arr[i], arr[i + gap]
+
+                i = i - gap  # To check left side also
+            # If the element present is greater than current element
+            j += 1
+        gap = gap // 2
+
+
+# driver to check the code
+arr2 = [12, 34, 54, 2, 3]
+
+shellSort(arr2, len(arr2))
+print(' '.join(map(str, arr2)))
+
+# Output: 2 3 12 34 54
+```
+
 
 ### Comparison
 
