@@ -273,6 +273,381 @@ class HashTable:
 
 ```
 
+二叉树的前中后序序列
+
+```python
+def preorder(node):
+    if not node:
+        return ""
+    return node.value + preorder(node.left) + preorder(node.right)
+
+
+def inorder(node):
+    if not node:
+        return ""
+    return inorder(node.left) + node.value + inorder(node.right)
+
+
+def postorder(node):
+    if not node:
+        return ""
+    return postorder(node.left) + postorder(node.right) + node.value
+
+```
+
+多叉树的前后序序列
+
+```python
+def preorder(node):
+    if node.children == []:
+        return node.value
+    return node.value + "".join(map(preorder, node.children))
+
+
+def postorder(node):
+    if node.children == []:
+        return node.value
+    return "".join(map(postorder, node.children)) + node.value
+
+```
+
+
+Huffman 算法
+
+```
+import heapq
+
+class Node:
+    def __init__(self, char, freq):
+        self.char = char
+        self.freq = freq
+        self.left = None
+        self.right = None
+
+    def __lt__(self, other):
+        return self.freq < other.freq
+
+def huffman_encoding(char_freq):
+    heap = [Node(char, freq) for char, freq in char_freq.items()]
+    heapq.heapify(heap)
+
+    while len(heap) > 1:
+        left = heapq.heappop(heap)
+        right = heapq.heappop(heap)
+        merged = Node(None, left.freq + right.freq) # note: 合并之后 char 字典是空
+        merged.left = left
+        merged.right = right
+        heapq.heappush(heap, merged)
+
+    return heap[0]
+
+def external_path_length(node, depth=0):
+    if node is None:
+        return 0
+    if node.left is None and node.right is None:
+        return depth * node.freq
+    return (external_path_length(node.left, depth + 1) +
+            external_path_length(node.right, depth + 1))
+ 
+```
+
+
+优先级队列
+
+```
+class BinHeap:
+    def __init__(self):
+        self.heapList = [0]
+        self.currentSize = 0
+
+    def percUp(self, i):
+        while i // 2 > 0:
+            if self.heapList[i] < self.heapList[i // 2]:
+                tmp = self.heapList[i // 2]
+                self.heapList[i // 2] = self.heapList[i]
+                self.heapList[i] = tmp
+            i = i // 2
+
+    def insert(self, k):
+        self.heapList.append(k)
+        self.currentSize = self.currentSize + 1
+        self.percUp(self.currentSize)
+
+    def percDown(self, i):
+        while (i * 2) <= self.currentSize:
+            mc = self.minChild(i)
+            if self.heapList[i] > self.heapList[mc]:
+                tmp = self.heapList[i]
+                self.heapList[i] = self.heapList[mc]
+                self.heapList[mc] = tmp
+            i = mc
+
+    def minChild(self, i):
+        if i * 2 + 1 > self.currentSize:
+            return i * 2
+        else:
+            if self.heapList[i * 2] < self.heapList[i * 2 + 1]:
+                return i * 2
+            else:
+                return i * 2 + 1
+
+    def delMin(self):
+        retval = self.heapList[1]
+        self.heapList[1] = self.heapList[self.currentSize]
+        self.currentSize = self.currentSize - 1
+        self.heapList.pop()
+        self.percDown(1)
+        return retval
+
+    def buildHeap(self, alist):
+        i = len(alist) // 2
+        self.currentSize = len(alist)
+        self.heapList = [0] + alist[:]
+        while (i > 0):
+            print(f'i = {i}, {self.heapList}')
+            self.percDown(i)
+            i = i - 1
+        print(f'i = {i}, {self.heapList}')
+
+```
+
+二叉搜索树
+
+```
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def insert(root, val):
+    if root is None:
+        return TreeNode(val)
+    if val < root.val:
+        root.left = insert(root.left, val)
+    else:
+        root.right = insert(root.right, val)
+    return root
+
+def inorder_traversal(root, result):
+    if root:
+        inorder_traversal(root.left, result)
+        result.append(root.val)
+        inorder_traversal(root.right, result)
+
+def quicksort(nums):
+    if not nums:
+        return []
+    root = TreeNode(nums[0])
+    for num in nums[1:]:
+        insert(root, num)
+    result = []
+    inorder_traversal(root, result)
+    return result
+
+```
+
+AVL树
+
+LL型
+<img width="406" alt="202403221936655" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/f9833134-9045-4637-963e-08ce860af7c5">
+
+LR型
+<img width="480" alt="202403221938907" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/d3324aa4-5ed1-433f-9365-4e9e1dc6c4f6">
+
+```
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+        self.height = 1
+
+class AVL:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, value):
+        if not self.root:
+            self.root = Node(value)
+        else:
+            self.root = self._insert(value, self.root)
+
+    def _insert(self, value, node):
+        if not node:
+            return Node(value)
+        elif value < node.value:
+            node.left = self._insert(value, node.left)
+        else:
+            node.right = self._insert(value, node.right)
+
+        node.height = 1 + max(self._get_height(node.left), self._get_height(node.right))
+
+        balance = self._get_balance(node)
+
+        if balance > 1:
+            if value < node.left.value:	# 树形是 LL
+                return self._rotate_right(node)
+            else:	# 树形是 LR
+                node.left = self._rotate_left(node.left)
+                return self._rotate_right(node)
+
+        if balance < -1:
+            if value > node.right.value:	# 树形是 RR
+                return self._rotate_left(node)
+            else:	# 树形是 RL
+                node.right = self._rotate_right(node.right)
+                return self._rotate_left(node)
+
+        return node
+
+    def _get_height(self, node):
+        if not node:
+            return 0
+        return node.height
+
+    def _get_balance(self, node):
+        if not node:
+            return 0
+        return self._get_height(node.left) - self._get_height(node.right)
+
+    def _rotate_left(self, z):
+        y = z.right
+        T2 = y.left
+        y.left = z
+        z.right = T2
+        z.height = 1 + max(self._get_height(z.left), self._get_height(z.right))
+        y.height = 1 + max(self._get_height(y.left), self._get_height(y.right))
+        return y
+
+    def _rotate_right(self, y):
+        x = y.left
+        T2 = x.right
+        x.right = y
+        y.left = T2
+        y.height = 1 + max(self._get_height(y.left), self._get_height(y.right))
+        x.height = 1 + max(self._get_height(x.left), self._get_height(x.right))
+        return x
+
+    def preorder(self):
+        return self._preorder(self.root)
+
+    def _preorder(self, node):
+        if not node:
+            return []
+        return [node.value] + self._preorder(node.left) + self._preorder(node.right)
+```
+
+删除节点的方法
+
+```
+class AVL:
+    # Existing code...
+    
+    def delete(self, value):
+        self.root = self._delete(value, self.root)
+
+    def _delete(self, value, node):
+        if not node:
+            return node
+
+        if value < node.value:
+            node.left = self._delete(value, node.left)
+        elif value > node.value:
+            node.right = self._delete(value, node.right)
+        else:
+            if not node.left:
+                temp = node.right
+                node = None
+                return temp
+            elif not node.right:
+                temp = node.left
+                node = None
+                return temp
+
+            temp = self._min_value_node(node.right)
+            node.value = temp.value
+            node.right = self._delete(temp.value, node.right)
+
+        if not node:
+            return node
+
+        node.height = 1 + max(self._get_height(node.left), self._get_height(node.right))
+
+        balance = self._get_balance(node)
+
+        # Rebalance the tree
+        if balance > 1:
+            if self._get_balance(node.left) >= 0:
+                return self._rotate_right(node)
+            else:
+                node.left = self._rotate_left(node.left)
+                return self._rotate_right(node)
+
+        if balance < -1:
+            if self._get_balance(node.right) <= 0:
+                return self._rotate_left(node)
+            else:
+                node.right = self._rotate_right(node.right)
+                return self._rotate_left(node)
+
+        return node
+
+    def _min_value_node(self, node):
+        current = node
+        while current.left:
+            current = current.left
+        return current
+
+    # Existing code...
+```
+
+并查集
+
+```
+# Finds the representative of the set
+# that i is an element of
+
+def find(i):
+
+	# If i is the parent of itself
+	if (parent[i] == i):
+
+		# Then i is the representative of
+		# this set
+		return i
+	else:
+
+		# Else if i is not the parent of
+		# itself, then i is not the
+		# representative of his set. So we
+		# recursively call Find on its parent
+		return find(parent[i])
+
+# The code is contributed by Nidhi goel
+
+# Unites the set that includes i
+# and the set that includes j
+
+def union(parent, rank, i, j):
+	# Find the representatives
+	# (or the root nodes) for the set
+	# that includes i
+	irep = find(parent, i)
+	
+	# And do the same for the set
+	# that includes j
+	jrep = find(parent, j)
+	
+	# Make the parent of i’s representative
+	# be j’s representative effectively
+	# moving all of i’s set into j’s set)
+	
+	parent[irep] = jrep
+
+```
+
+
 
 
 
