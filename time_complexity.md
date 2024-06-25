@@ -2,6 +2,10 @@
 
 ## Time Complexity
 
+### Best case
+
+### Worst case
+
 
 ## Sorting Algorithm
 
