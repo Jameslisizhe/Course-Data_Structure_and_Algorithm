@@ -1,4 +1,4 @@
-# Stack & Queue
+# Stack, Queue & Hash Table
 
 ## Stack
 
