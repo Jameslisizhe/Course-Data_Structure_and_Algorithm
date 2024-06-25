@@ -256,7 +256,126 @@ linked_list.display_backward()  # 输出：1 2 3
 ```
 
 
-### Hash Table
+## Hash Table
+
+散列函数和散列地址：在记录的存储位置p和其关键字 key 之间建立一个确定的对应关系 H，使p=H(key)，称这个对应关系H为散列函数，p为散列地址。
+
+散列表：一个有限连续的地址空间，用以存储按散列函数计算得到相应散列地址的数据记录。通常散列表的存储空间是一个一维数组，散列地址是数组的下标。
+
+冲突和同义词：对不同的关键字可能得到同一散列地址,即 key1≠key2,而 H(key1) = H(key2) 这种现象称为冲突。具有相同函数值的关键字对该散列函数来说称作同义词，key1与 key2 互称为同义词。
+
+### 散列函数的构造方法
+
+·数字分析法
+·平方取中法
+·折叠法将
+·除留余数法
+
+
+### 处理冲突的方法
+
+#### 开放地址法（闭散列法）
+·线性探测法
+·二次探测法
+·伪随机探测法
+
+#### 链地址法（开散列法）
+<img width="383" alt="image-20240331233821990" src="https://github.com/Jameslisizhe/Course-Data_Structure_and_Algorithm/assets/161715584/7e2254f8-eb88-4fe4-af15-a99878d43395">
+
+```
+class HashTable:
+    def __init__(self):
+        self.size = 11
+        self.slots = [None] * self.size
+        self.data = [None] * self.size
+
+    def put(self,key,data):
+        hashvalue = self.hashfunction(key,len(self.slots))
+
+        if self.slots[hashvalue] == None:
+            self.slots[hashvalue] = key
+            self.data[hashvalue] = data
+        else:
+            if self.slots[hashvalue] == key:
+                self.data[hashvalue] = data #replace
+            else:
+                nextslot = self.rehash(hashvalue,len(self.slots))
+                while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                    nextslot = self.rehash(nextslot,len(self.slots))
+
+                if self.slots[nextslot] == None:
+                    self.slots[nextslot] = key
+                    self.data[nextslot] = data
+                else:
+                    self.data[nextslot] = data #replace
+
+    def hashfunction(self,key,size):
+        return key%size
+
+    def rehash(self,oldhash,size):
+        return (oldhash+1)%size
+
+    def get(self,key):
+        startslot = self.hashfunction(key,len(self.slots))
+
+        data = None
+        stop = False
+        found = False
+        position = startslot
+        while self.slots[position] != None and not found and not stop:
+                if self.slots[position] == key:
+                    found = True
+                    data = self.data[position]
+                else:
+                    position=self.rehash(position,len(self.slots))
+                    if position == startslot:
+                        stop = True
+        return data
+
+    def __getitem__(self,key):
+        return self.get(key)
+
+    def __setitem__(self,key,data):
+        self.put(key,data)
+
+
+H=HashTable()
+H[54]="cat"
+H[26]="dog"
+H[93]="lion"
+H[17]="tiger"
+H[77]="bird"
+H[31]="cow"
+H[44]="goat"
+H[55]="pig"
+H[20]="chicken"
+print(H.slots)
+print(H.data)
+
+
+print(H[20])
+print(H[17])
+
+H[20] = 'duck'
+print(H[20])
+
+print(H.data)
+
+print(H[99])
+
+"""
+[77, 44, 55, 20, 26, 93, 17, None, None, 31, 54]
+['bird', 'goat', 'pig', 'chicken', 'dog', 'lion', 'tiger', None, None, 'cow', 'cat']
+chicken
+tiger
+duck
+['bird', 'goat', 'pig', 'duck', 'dog', 'lion', 'tiger', None, None, 'cow', 'cat']
+None
+"""
+```
+
+
+
 
 
 
